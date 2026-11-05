@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Doom (WASM)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; }
+    body { display: flex; align-items: center; justify-content: center; flex-direction: column; color: #ccc; font: 14px monospace; }
+    canvas { background: #111; max-width: 100vw; max-height: 75vh; image-rendering: pixelated; outline: none; }
+    .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; margin: 10px; }
+    button { padding: 8px 14px; background: #292929; color: white; border: 1px solid #777; border-radius: 4px; cursor: pointer; }
+    button:focus-visible, input:focus-visible { outline: 2px solid #f6c44c; }
+    #controls { text-align: center; padding: 8px; max-width: 640px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="640" height="400" tabindex="0"></canvas>
+  <div id="status">Loading…</div>
+  <div class="toolbar" aria-label="Game controls">
+    <button id="menu" disabled>Menu</button>
+    <button id="pause" disabled aria-pressed="false">Pause</button>
+    <button id="sound" aria-pressed="false">Enable sound</button>
+    <label>Volume <input id="volume" type="range" min="0" max="100" value="70"></label>
+  </div>
+  <div id="controls">Arrows: move/turn · W/S: forward/back · A/D: strafe · Ctrl: fire · Space: use<br>Shift: run · 1–7: weapon · Tab: map · Enter/Esc: menus · P: pause</div>
+  <script src="audio.js"></script>
+  <script>
+    // Browser KeyboardEvent.code -> Doom key code (doomkeys.h)
+    const MAP = {
+      ArrowLeft: 0xac, ArrowRight: 0xae, ArrowUp: 0xad, ArrowDown: 0xaf,
+      ControlLeft: 0xa3, ControlRight: 0xa3, Space: 0xa2,
+      Comma: 0xa0, Period: 0xa1,
+      KeyW: 0xad, KeyS: 0xaf, KeyA: 0xa0, KeyD: 0xa1, KeyP: 0xff,
+      Enter: 13, NumpadEnter: 13, Escape: 27, Tab: 9, Backspace: 0x7f,
+      ShiftLeft: 0x80 + 0x36, ShiftRight: 0x80 + 0x36,
+      AltLeft: 0x80 + 0x38, AltRight: 0x80 + 0x38,
+      Minus: 0x2d, Equal: 0x3d, Pause: 0xff,
+      F1: 0xbb, F2: 0xbc, F3: 0xbd, F4: 0xbe, F5: 0xbf, F6: 0xc0,
+      F7: 0xc1, F8: 0xc2, F9: 0xc3, F10: 0xc4, F11: 0xd7, F12: 0xd8,
+    };
+    function doomKey(e) {
+      if (MAP[e.code] !== undefined) return MAP[e.code];
+      if (/^Key[A-Z]$/.test(e.code)) return e.code.charCodeAt(3) + 32; // lowercase
+      if (/^Digit[0-9]$/.test(e.code)) return e.code.charCodeAt(5);
+      return 0;
+    }
+    const down = new Map(); // physical key -> Doom key; aliases may overlap
+    function unlockAudio() {
+      DoomAudio.unlock().catch(error => { document.getElementById('status').textContent = `Sound unavailable: ${error.message}`; });
+    }
+    function release(code) {
+      const k = down.get(code);
+      if (k === undefined) return;
+      down.delete(code);
+      if (![...down.values()].includes(k)) Module._dg_key(0, k);
+    }
+    function send(pressed, e) {
+      if (!pressed) { release(e.code); return; }
+      if (e.target.closest?.('button, input, select, textarea')) return;
+      const k = doomKey(e);
+      if (!k || !Module._dg_key || e.metaKey) return;
+      if (['F5','F11','F12'].includes(e.code)) return;
+      e.preventDefault(); unlockAudio();
+      if (down.has(e.code)) return;
+      const held = [...down.values()].includes(k);
+      down.set(e.code, k);
+      if (!held) Module._dg_key(1, k);
+    }
+    window.addEventListener('keydown', e => send(true, e));
+    window.addEventListener('keyup', e => send(false, e));
+    function releaseAll() {
+      for (const k of new Set(down.values())) Module._dg_key(0, k);
+      down.clear();
+    }
+    window.addEventListener('blur', releaseAll);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) releaseAll(); });
+    document.getElementById('canvas').addEventListener('pointerdown', unlockAudio);
+    function buttonKey(k) {
+      if (!Module._dg_key) return;
+      unlockAudio(); Module._dg_key(1, k);
+      setTimeout(() => Module._dg_key(0, k), 70);
+      Module.canvas.focus();
+    }
+    document.getElementById('menu').addEventListener('click', () => buttonKey(27));
+    document.getElementById('pause').addEventListener('click', () => buttonKey(255));
+    document.getElementById('sound').addEventListener('click', () => {
+      if (DoomAudio.context) DoomAudio.setMuted(!DoomAudio.muted);
+      unlockAudio();
+    });
+    document.getElementById('volume').addEventListener('input', e => DoomAudio.setVolume(Number(e.target.value)/100));
+    setInterval(() => {
+      if (!Module._dg_paused) return;
+      const paused = !!Module._dg_paused(), button = document.getElementById('pause');
+      button.textContent = paused ? 'Resume' : 'Pause'; button.setAttribute('aria-pressed', String(paused));
+    }, 100);
+
+    var Module = {
+      canvas: document.getElementById('canvas'),
+      onAbort: w => { document.getElementById('status').textContent = `Game stopped: ${w}`; },
+      print: t => console.log(t),
+      printErr: t => console.warn(t),
+      setStatus: t => { document.getElementById('status').textContent = t || 'Ready — click the game or press a key to enable sound'; },
+      monitorRunDependencies: n => { if (n === 0) document.getElementById('status').textContent = 'Arrows move, Ctrl fire, Space use, Enter/Esc menu'; },
+      onRuntimeInitialized: () => {
+        document.getElementById('menu').disabled = false;
+        document.getElementById('pause').disabled = false;
+        document.getElementById('canvas').focus();
+      },
+    };
+  </script>
+  <script>
+    // Surface a failed game-data (WAD) download instead of hanging on "Loading…".
+    window.addEventListener('error', e => {
+      if (e.target && e.target.src && /doom\.js$/.test(e.target.src))
+        document.getElementById('status').textContent = 'Failed to load doom.js';
+    }, true);
+  </script>
+  <script src="doom.js"></script>
+</body>
+</html>

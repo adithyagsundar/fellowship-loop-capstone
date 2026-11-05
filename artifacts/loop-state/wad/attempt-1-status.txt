@@ -1,0 +1,7 @@
+task=wad
+attempt=1
+revision_before=e500c440656622db5ab3f8fb7df73d8b5998eeb3
+revision_after=e500c440656622db5ab3f8fb7df73d8b5998eeb3
+reviewer_pass=1
+tester_pass=1
+checks_ok=1

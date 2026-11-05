@@ -1,0 +1,26 @@
+The rendering implementation looks correct and integrated. It is also backed by a passing browser run, though not one the coder made.
+
+**Correctness**
+- **Pixel conversion:** `DG_DrawFrame` at `platform/doomgeneric_wasm.c:43-53` turns the engine's `0x00RRGGBB` pixels into little-endian RGBA with alpha 255. The channel shifts are right.
+- **Canvas draw:** `js_present` (`platform/doomgeneric_wasm.c:24-35`) reuses one `ImageData`, sets its pixels from `HEAPU8` and calls `putImageData`. It targets the 640×400 canvas, which matches `DOOMGENERIC_RESX/RESY` in `third_party/doomgeneric/doomgeneric.h`.
+- **Main loop:** `main()` (`platform/doomgeneric_wasm.c:114-125`) runs `doomgeneric_Tick()` and calls `emscripten_sleep(0)` each frame. `DG_SleepMs` also yields. `build.sh:15` enables `-sASYNCIFY`, which both calls need.
+- **WAD:** `build.sh` preloads `assets/doom1.wad` as `/doom1.wad`, and `main` passes `-iwad /doom1.wad`.
+- **Input:** the key queue and `dg_key` are bounds-checked. Held keys are tracked for overlapping aliases (for example W and ArrowUp). `blur` and `visibilitychange` release held keys (`web/index.html:70-77`).
+
+**Evidence**
+- The coder's own report says no browser tests were run in that session and no evidence was saved.
+- The latest run, `artifacts/runs/browser-2026-11-05T00-05-03.892Z-54907/results.json`, is for revision `e500c44` plus this working tree. It reports PASS on all checks.
+- Rendering checks in that run:
+  - The canvas is 640×400 with 234,272 lit pixels.
+  - Pacing is about 35 tics/s, with frames and tics both advancing.
+  - Movement and turning change the player's position and angle.
+  - There are no console errors or failed requests.
+- The hashes for `platform/doomgeneric_wasm.c` and `web/index.html` are recorded in that run. I did not re-hash the current files against them.
+
+**Minor gaps, not blocking for rendering**
+- Mouse input is not implemented. The coder says this is because the engine's mouse handling is commented out in `i_input.c`, but I did not check that.
+- Save games and config do not persist across reloads, because there is no IDBFS mount.
+- `build.sh:11` builds the engine files with a grep filter and compiles audio alongside. Audio belongs to another task, so I did not review it.
+- I did not re-run the build or the tests myself.
+
+VERDICT: PASS

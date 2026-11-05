@@ -1,0 +1,24 @@
+The evidence supports the WAD task, with a few gaps in the failure-path coverage.
+
+**What the evidence shows**
+- **Build:** `build.sh:18` preloads `assets/doom1.wad` as `/doom1.wad`. `main()` in `platform/doomgeneric_wasm.c:128-137` checks the `IWAD` magic and starts the engine with `-iwad /doom1.wad`. A missing or invalid WAD calls `js_fatal`.
+- **Browser test:** `tests/browser.mjs` launches real headless Chrome over CDP and serves `dist/` over HTTP. It asserts that `adding /doom1.wad` was logged and that `doom.js`, `doom.wasm` and `doom.data` were each fetched with status 200. It also asserts that the 640×400 canvas has more than 1000 lit pixels.
+- **Real input:** the test sends real input events (`Input.dispatchKeyEvent` and mouse events), not direct calls into the game. It then starts a level from the menu. Movement, turning, firing and the paced simulation (about 35 tics/s) all pass.
+- **Check run:** `attempt-1-checks.txt` shows the build succeeded, 2 Python tests passed, and every browser check passed, ending with `AUTOMATED_CHECKS_PASSED`.
+- **Saved evidence:** the run directory `artifacts/runs/browser-2026-11-05T00-10-57.679Z-58505` has `results.json` with status PASS and the revision hash. I opened `level.png`. It shows E1M1 rendered from the WAD, with the status bar, weapon and HUD.
+
+**Limits**
+- The review did not run anything. The coder and checks files are the only run evidence. Both agree with each other and with the saved artifacts.
+- I did not interact with a browser myself. My conclusion rests on the harness output and the screenshot.
+- The missing-WAD and corrupt-WAD error paths were never exercised in a browser. The coder and reviewer both say so.
+- The `DOOM_TEST_FAULT` fault-injection variants were not re-run. These show the checks can fail when something is broken.
+- The Menu and Pause buttons stay enabled after a fatal WAD error. This is minor.
+
+For this task's core claim, the WAD loads and the game is playable in a real browser. The untested failure paths are secondary.
+
+If you want those gaps closed, run these:
+1. Build without `doom.data`, or with a truncated one, and confirm the page shows an error and not "Loading…".
+2. Serve a non-IWAD file as `/doom1.wad` and confirm `js_fatal` shows its message.
+3. Run `DOOM_TEST_FAULT=blank-canvas`, `ignore-input` and `silent-effects`, and confirm each one fails.
+
+VERDICT: PASS

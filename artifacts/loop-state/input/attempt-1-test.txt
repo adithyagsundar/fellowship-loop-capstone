@@ -1,0 +1,38 @@
+The evidence supports the input, WAD and browser-integration task. It supports it with some gaps, listed below.
+
+**What the evidence shows**
+- The latest run (`artifacts/runs/browser-2026-11-05T00-08-55.630Z-57400`) records `"status": "PASS"` with no fault injected. It tests the built `dist/` served over HTTP in headless Chrome, driven through the DevTools protocol.
+- The test sends real key events with `Input.dispatchKeyEvent` and real mouse clicks. It does not call `dg_key` directly.
+- The WAD and WebAssembly checks assert that `doom.js`, `doom.wasm` and `doom.data` loaded with HTTP 200. They also check for the "adding /doom1.wad" log line and a 640×400 canvas with more than 1000 lit pixels.
+- Input is verified through engine state, not only compilation. The test checks these:
+  - Escape and Enter start a level.
+  - ArrowUp changes player position and the canvas pixels.
+  - ArrowRight changes the angle.
+  - Ctrl consumes ammo.
+  - Space press and release reach the engine.
+  - W, S, A and D move and strafe in the right directions.
+  - Overlapping Shift keys behave correctly.
+  - Weapon select and Tab (automap) work.
+  - The Menu and Pause buttons and the P shortcut work.
+- Pacing is measured at about 28–42 tics/s over 3 seconds, and the run reports no console, page or network errors.
+- Both the code and the test cover the missing or invalid WAD case. `main()` checks the `IWAD` magic and shows a visible error (`platform/doomgeneric_wasm.c:127-131`). The test only exercises the valid-WAD path.
+- The key map in `web/index.html:30-41` is consistent with Doom's key codes. The JS keeps a per-physical-key table so aliases release correctly, and it releases all keys on blur and when the tab is hidden.
+
+I read the coder, review and checks files, `tests/browser.mjs`, `web/index.html`, the relevant parts of `platform/doomgeneric_wasm.c`, and the run's `results.json`. I did not rebuild or rerun anything, and I did not interact with a browser myself. My conclusions rest on the recorded test output and the code.
+
+**Gaps**
+- The `DOOM_TEST_FAULT` variants (`ignore-input`, `blank-canvas`, `silent-effects`) were not run this turn. The only evidence that the test fails when input is broken is the harness code.
+- Mouse aiming and mouse fire are not implemented or tested.
+- Door and switch use is not tested. Only the engine's "use" state is checked.
+- The blur test uses a synthetic `blur` event. OS focus loss is not verified.
+- The WAD-missing error path is not exercised.
+- The run is tied to a dirty working tree at `e500c44`. It is identified by file hashes, not a commit.
+- Headless Chrome shows that the test sequence works. It is not evidence of a human playing in a normal browser window.
+- `loop/` has modifications (`loop/README.md`, `loop/agents.yaml`, `loop/loop.sh`). The coder says it made no changes, and the review attributes them to the user. I could not verify who made them.
+
+**Assessment**
+These gaps don't undercut the task as the coder and review scoped it, which is keyboard input, WAD loading and integration. The test drives real input events and observes engine state and rendered pixels. A compile-only result would not have shown that.
+
+A fuller sign-off would also run each of the three `DOOM_TEST_FAULT` values and confirm each fails. It would also add a negative-path check with `doom.data` missing or corrupted, and a door or switch interaction test.
+
+VERDICT: PASS

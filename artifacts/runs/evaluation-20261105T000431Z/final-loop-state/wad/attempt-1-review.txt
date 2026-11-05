@@ -1,0 +1,17 @@
+**Findings**
+
+The WAD loading works and is wired through the build, the engine entry point and the page.
+
+- **Build:** `build.sh:18` preloads `assets/doom1.wad` as `/doom1.wad`, and `dist/doom.data` exists. The `assets/` directory is only read, never changed.
+- **Startup:** `platform/doomgeneric_wasm.c:128-136` opens the file and checks for the `IWAD` magic. It reports a visible error through `js_fatal` if the check fails. Otherwise it starts the engine with `-iwad /doom1.wad`. This is correct, and the engine's `W_` code reads the same path.
+- **Page:** `web/index.html:98-110` sets `onAbort`, `setStatus` and `monitorRunDependencies`. A failed `doom.data` fetch makes Emscripten abort, and `onAbort` shows that. So the page doesn't hang on "Loading…".
+- **Coder report:** the report matches the tree. No source files were changed, and it says so. The `git status` entries are earlier work. The browser test (`tests/browser.mjs:110`) checks that `adding /doom1.wad` is logged and that the canvas has rendered pixels.
+
+I did not run the build or tests myself. I'm relying on the coder's reported results and on reading the code.
+
+**Minor, not blocking**
+1. **Misleading comment:** the comment at `web/index.html:113` says it surfaces a failed WAD download. The handler only catches a `doom.js` script load error. The WAD failure is actually handled by `onAbort`.
+2. **Buttons stay enabled after a fatal WAD error:** `onRuntimeInitialized` (`web/index.html:105-109`) enables the Menu and Pause buttons even if `main` then fails the WAD check.
+3. **Untested error paths:** the missing-WAD and corrupt-WAD paths were never exercised in a browser, as the coder admits. The code looks right.
+
+VERDICT: PASS

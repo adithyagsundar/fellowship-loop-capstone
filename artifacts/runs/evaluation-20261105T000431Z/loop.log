@@ -1,0 +1,14 @@
+Starting DOOM multi-agent loop
+Skipping completed task: build
+====================================
+Task: rendering
+====================================
+Attempt 1 / 3
+[1/3] Running Coder
+[2/3] Running Reviewer
+[3/3] Running automated checks
+Running Tester
+Task passed: rendering
+All task cycles passed their available automated checks.
+Browser gameplay verification is still required.
+AUTOMATED_PHASE_COMPLETE

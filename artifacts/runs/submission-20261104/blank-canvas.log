@@ -1,0 +1,3 @@
+AssertionError [ERR_ASSERTION]: Canvas is blank
+    at file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:115:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-35-19.898Z-63171

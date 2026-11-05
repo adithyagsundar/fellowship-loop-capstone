@@ -1,0 +1,31 @@
+I made no changes this turn. The input, WAD and integration work was already in the working tree, so I built and tested it as it stands.
+
+**Verification (current uncommitted tree):**
+- `bash build.sh` with Emscripten 4.0.18 succeeded and produced `dist/`.
+- `python3 -m unittest discover -s tests -p 'test_*.py'` ran 2 tests, both passing, with the browser checks all showing PASS.
+- Evidence is in `artifacts/runs/browser-2026-11-05T00-08-05.119Z-57039`.
+- I did not run the `DOOM_TEST_FAULT` fault-injection variants this turn.
+
+**1. Files changed:** None. The relevant existing files are `platform/doomgeneric_wasm.c`, `web/index.html`, `web/audio.js` and `build.sh`.
+
+**2. What is already implemented:**
+- **Input:**
+  - The page maps browser `KeyboardEvent.code` values to Doom key codes, including arrows, W/A/S/D, Ctrl to fire, Space to use, Shift to run, 1–7 for weapons, Tab, Enter, Esc and P.
+  - Key events go through `dg_key` into a 256-entry ring buffer that `DG_GetKey` drains.
+  - Overlapping key aliases are tracked.
+  - Keys release on window blur.
+  - On-page Menu, Pause and Mute controls are present.
+- **WAD:**
+  - `build.sh` preloads `assets/doom1.wad` as `/doom1.wad`.
+  - `main()` checks for the `IWAD` magic bytes before starting.
+  - If the WAD is missing or invalid, it shows a visible error in `#status` instead of failing silently.
+- **Integration:**
+  - Rendering converts the engine's BGR pixels to RGBA and draws them on the canvas.
+  - Timing uses Asyncify sleeps so the browser stays responsive.
+  - Read-only `dg_*` observation exports let the tests check game state.
+
+**3. What remains incomplete:**
+- Mouse aiming, door and switch activation, and save persistence are not covered by the tests.
+- Music is synthesized with simplified instruments, not OPL emulation.
+- Audio checks measure Web Audio samples, not physical speaker output.
+- The loop-level requirements (undisclosed regression repair, resumption) belong to `loop/` and are out of scope for this role.

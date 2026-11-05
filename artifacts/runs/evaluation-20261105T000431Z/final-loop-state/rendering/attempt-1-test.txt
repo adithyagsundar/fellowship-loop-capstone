@@ -1,0 +1,24 @@
+Evidence supports rendering and basic browser playability.
+
+**What the evidence shows**
+- The coder's own report (`attempt-1-coder.txt`) says no browser tests were run and no evidence was saved. It rests on the build alone, so I did not use it as evidence.
+- `attempt-1-checks.txt` shows the build, the Python tests and the Chrome browser test all passing. The browser test is `tests/browser.mjs`, run through `tests/test_browser.py`.
+- The browser test launches real headless Chrome 157 over DevTools. It reads the canvas back with `getImageData` and counts lit pixels, and it sends keyboard events.
+- The run `artifacts/runs/browser-2026-11-05T00-06-30.063Z-55805/results.json` is the one that matches the checks file. It records revision `e500c44` plus the dirty working tree, with file hashes.
+- Rendering results in that run:
+  - The canvas is 640×400 with 234,272 lit pixels.
+  - The game advances at about 35 tics/s. Frames went from 212 to 421 and tics from 98 to 203 over three seconds.
+  - Movement changed the player's position, turning changed the angle, and firing used 3 rounds of ammo, from 50 to 47.
+  - There were no page errors, console errors or failed requests.
+- I opened `level.png` from that run. It shows a correctly coloured E1M1 scene with the weapon sprite, status bar, HUD and page controls. The screenshot was produced by the test harness, not by me. I did not run a browser myself.
+
+**Limits, as recorded in the run's own `limitations`**
+- Mouse input and save persistence are not verified.
+- The blur check uses a synthetic event.
+- Timing is checked only within a 28–42 tics/s tolerance over three seconds.
+- The headless run says nothing about display smoothness or real-GPU behaviour.
+- I did not re-hash the current source files against the recorded hashes, and I did not re-run the build or the tests.
+
+None of these limits is part of the rendering task, so none blocks it.
+
+VERDICT: PASS

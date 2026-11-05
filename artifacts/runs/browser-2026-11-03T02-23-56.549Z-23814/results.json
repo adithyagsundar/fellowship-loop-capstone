@@ -1,0 +1,319 @@
+{
+  "status": "FAIL",
+  "fault": "silent-effects",
+  "started": "2026-11-03T02:23:56.552Z",
+  "checks": [
+    {
+      "name": "WAD and WebAssembly load; canvas contains rendered pixels",
+      "width": 640,
+      "height": 400,
+      "lit": 234272
+    },
+    {
+      "name": "Enable sound button unlocks audio through a real user gesture"
+    },
+    {
+      "name": "Real keyboard events open menu and start a new game"
+    },
+    {
+      "name": "Continuous rendering and simulation pacing",
+      "before": {
+        "time": 3806.4000000059605,
+        "frames": 213,
+        "tics": 94
+      },
+      "after": {
+        "time": 6809.700000017881,
+        "frames": 423,
+        "tics": 199
+      },
+      "ticsPerSecond": 34.96154230332741
+    },
+    {
+      "name": "Movement changes world position and rendered view",
+      "start": [
+        69206016,
+        -236978176
+      ],
+      "moved": [
+        69201679,
+        -226185106
+      ]
+    },
+    {
+      "name": "Turning changes player angle"
+    },
+    {
+      "name": "Firing consumes ammunition",
+      "before": 50,
+      "after": 47
+    }
+  ],
+  "console": [
+    {
+      "type": "log",
+      "args": [
+        "                           Doom Generic 0.1"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Z_Init: Init zone memory allocation daemon. "
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "zone memory: 0x354d50, 600000 allocated for zone"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Using . for configuration and saves"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "V_Init: allocate screens."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "M_LoadDefaults: Load system defaults."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "saving config in .default.cfg"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "W_Init: Init WADfiles."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " adding /doom1.wad"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Using ./.savegame/ for savegames"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "                            DOOM Shareware"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " Doom Generic is free software, covered by the GNU General Public"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " License.  There is NO warranty; not even for MERCHANTABILITY or FITNESS"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " FOR A PARTICULAR PURPOSE. You are welcome to change and distribute"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " copies under certain conditions. See the source for more information."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_Init: Setting up machine state."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "M_Init: Init miscellaneous info."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "R_Init: Init DOOM refresh daemon - ..................."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "P_Init: Init Playloop state."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "S_Init: Setting up sound."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "D_CheckNetGame: Checking network game status."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "startskill 2  deathmatch: 0  startmap: 1  startepisode: 1"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "player 1 of 1 (1 nodes)"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Emulating the behavior of the 'Doom 1.9' executable."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "HU_Init: Setting up heads up display."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "ST_Init: Init status bar."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: framebuffer: x_res: 640, y_res: 400, x_virtual: 640, y_virtual: 400, bpp: 32"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: framebuffer: RGBA: 8888, red_off: 16, green_off: 8, blue_off: 0, transp_off: 24"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: DOOM screen size: w x h: 320 x 200"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: Auto-scaling factor: 2"
+      ]
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:54893/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54893/audio.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54893/doom.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54893/doom.data",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54893/doom.wasm",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54893/favicon.ico",
+      "status": 204
+    },
+    {
+      "url": "http://127.0.0.1:54893/favicon.ico",
+      "status": 204
+    }
+  ],
+  "revision": "e500c440656622db5ab3f8fb7df73d8b5998eeb3",
+  "workingTree": " M loop/README.md\n M loop/agents.yaml\n M loop/loop.sh\n M platform/doomgeneric_wasm.c\n M web/index.html\n?? artifacts/loop-state/\n?? artifacts/runs/\n?? build.sh\n?? platform/SDL_mixer.h\n?? platform/doom_audio.c\n?? tests/browser.mjs\n?? tests/test_audio.py\n?? tests/test_browser.py\n?? web/audio.js\n",
+  "hashes": {
+    "build.sh": "aa2b17445e115aec78658bb9d5e462bf9eb60e35b1fb7e9eb1365a68ef86b784",
+    "platform/doomgeneric_wasm.c": "2a3e765a34a4c7a2a8f65a0b6e681fe95a19a66aeb1e008564ab66d5468e49f6",
+    "platform/doom_audio.c": "237b362aef61e302705ae8bbc3f194b94835f6cff7280b6a98cee3c746c0d00b",
+    "platform/SDL_mixer.h": "f961d2689ece9de5ae952ec07f74d37cf923639330a2c22b1ee408ae31bd8ff0",
+    "web/audio.js": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5",
+    "dist/audio.js": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5",
+    "web/index.html": "54681106cfa069a2ee94a600a6b5d69a045fad178ded0536d88badf72ac90c01",
+    "tests/test_browser.py": "fb1496c40dcecb8d52ec3e64f32eaacdfd32909564270e4b656f27288b3d439c",
+    "tests/test_audio.py": "a781a39be68d2aca808baff13ee9e4b1abc82b93fb9b192e31212fc064a0b643",
+    "tests/browser.mjs": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+    "assets/doom1.wad": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "dist/doom.js": "5450e8d52cf4a4c481629834f4248e69cac61e278e3c4c1d460a13b81446108f",
+    "dist/doom.wasm": "7ae8e0d819446acc36e80dbc672bd72949ce74542cc55b9a0e13df017f57e339",
+    "dist/doom.data": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "dist/index.html": "54681106cfa069a2ee94a600a6b5d69a045fad178ded0536d88badf72ac90c01"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/156.0.8078.80",
+    "revision": "@fb096c0011f9d50f0a264a9376420cdea9c421e3",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+    "jsVersion": "15.6.75.27"
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: No sound-effect waveform while firing\n    at until (file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:95:13)\n    at async file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:168:5",
+  "finished": "2026-11-03T02:24:16.481Z",
+  "limitations": [
+    "Audio checks measure the Web Audio graph, not physical speakers or musical fidelity. Music uses simplified instruments, not OPL emulation.",
+    "Does not verify mouse aiming or save persistence.",
+    "Use checks engine input state, not successful door/switch interaction.",
+    "Focus-loss check dispatches synthetic blur; OS focus transitions are not verified.",
+    "Timing tolerance is 28–42 simulation tics/s over three seconds.",
+    "No claim of enforced role permissions or full assignment acceptance."
+  ]
+}

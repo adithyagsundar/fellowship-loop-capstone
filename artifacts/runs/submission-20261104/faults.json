@@ -1,0 +1,17 @@
+[
+  {
+    "fault": "ignore-input",
+    "exit_code": 1,
+    "expected_failure_detected": true
+  },
+  {
+    "fault": "blank-canvas",
+    "exit_code": 1,
+    "expected_failure_detected": true
+  },
+  {
+    "fault": "silent-effects",
+    "exit_code": 1,
+    "expected_failure_detected": true
+  }
+]

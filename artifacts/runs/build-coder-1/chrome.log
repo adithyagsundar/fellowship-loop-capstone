@@ -1,0 +1,51 @@
+[17244:4660178:1102/173908.864027:INFO:components/enterprise/browser/controller/chrome_browser_cloud_management_controller.cc:241] No machine level policy manager exists.
+[17254:4660368:1102/173909.333008:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.333678:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.333750:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.333814:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.333879:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.334016:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.334114:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.335830:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+Trying to load the allocator multiple times. This is *not* supported.
+[17254:4660368:1102/173909.408805:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.414830:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.415160:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.416244:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17254:4660368:1102/173909.416338:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[17244:4660178:1102/173909.503306:INFO:CONSOLE:53] "                           Doom Generic 0.1", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503373:INFO:CONSOLE:53] "Z_Init: Init zone memory allocation daemon. ", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503753:INFO:CONSOLE:53] "zone memory: 0x354a10, 600000 allocated for zone", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503766:INFO:CONSOLE:53] "Using . for configuration and saves", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503774:INFO:CONSOLE:53] "V_Init: allocate screens.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503783:INFO:CONSOLE:53] "M_LoadDefaults: Load system defaults.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503798:INFO:CONSOLE:53] "saving config in .default.cfg", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503814:INFO:CONSOLE:53] "W_Init: Init WADfiles.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.503823:INFO:CONSOLE:53] " adding /doom1.wad", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504135:INFO:CONSOLE:53] "Using ./.savegame/ for savegames", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504174:INFO:CONSOLE:53] "===========================================================================", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504195:INFO:CONSOLE:53] "                            DOOM Shareware", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504212:INFO:CONSOLE:53] "===========================================================================", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504423:INFO:CONSOLE:53] " Doom Generic is free software, covered by the GNU General Public", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504439:INFO:CONSOLE:53] " License.  There is NO warranty; not even for MERCHANTABILITY or FITNESS", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504524:INFO:CONSOLE:53] " FOR A PARTICULAR PURPOSE. You are welcome to change and distribute", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504540:INFO:CONSOLE:53] " copies under certain conditions. See the source for more information.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504553:INFO:CONSOLE:53] "===========================================================================", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504562:INFO:CONSOLE:53] "I_Init: Setting up machine state.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.504873:INFO:CONSOLE:53] "M_Init: Init miscellaneous info.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506745:INFO:CONSOLE:53] "R_Init: Init DOOM refresh daemon - ...................", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506758:INFO:CONSOLE:53] "P_Init: Init Playloop state.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506815:INFO:CONSOLE:53] "S_Init: Setting up sound.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506828:INFO:CONSOLE:53] "D_CheckNetGame: Checking network game status.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506836:INFO:CONSOLE:53] "startskill 2  deathmatch: 0  startmap: 1  startepisode: 1", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506844:INFO:CONSOLE:53] "player 1 of 1 (1 nodes)", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506851:INFO:CONSOLE:53] "Emulating the behavior of the 'Doom 1.9' executable.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506856:INFO:CONSOLE:53] "HU_Init: Setting up heads up display.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.506865:INFO:CONSOLE:53] "ST_Init: Init status bar.", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.509510:INFO:CONSOLE:53] "I_InitGraphics: framebuffer: x_res: 640, y_res: 400, x_virtual: 640, y_virtual: 400, bpp: 32", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.509549:INFO:CONSOLE:53] "I_InitGraphics: framebuffer: RGBA: 8888, red_off: 16, green_off: 8, blue_off: 0, transp_off: 24", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.509567:INFO:CONSOLE:53] "I_InitGraphics: DOOM screen size: w x h: 320 x 200", source: http://localhost:8765/index.html (53)
+[17244:4660178:1102/173909.509582:INFO:CONSOLE:53] "I_InitGraphics: Auto-scaling factor: 2", source: http://localhost:8765/index.html (53)
+51461 bytes written to file artifacts/runs/build-coder-1/screenshot.png
+[17255:4660304:1102/173910.060610:WARNING:net/extras/sqlite/sqlite_persistent_store_backend_base.cc:182] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:232 to client_task_runner_.
+[17255:4660304:1102/173910.060767:WARNING:net/extras/sqlite/sqlite_persistent_store_backend_base.cc:182] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:232 to client_task_runner_.

@@ -1,0 +1,23 @@
+[
+  {
+    "fault": "ignore-input",
+    "exit_code": 1,
+    "detected_expected_failure": true,
+    "expected_message": "Escape did not open the menu",
+    "log": "artifacts/runs/evaluation-20261105T000431Z/ignore-input.log"
+  },
+  {
+    "fault": "blank-canvas",
+    "exit_code": 1,
+    "detected_expected_failure": true,
+    "expected_message": "Canvas is blank",
+    "log": "artifacts/runs/evaluation-20261105T000431Z/blank-canvas.log"
+  },
+  {
+    "fault": "silent-effects",
+    "exit_code": 1,
+    "detected_expected_failure": true,
+    "expected_message": "No sound-effect waveform while firing",
+    "log": "artifacts/runs/evaluation-20261105T000431Z/silent-effects.log"
+  }
+]

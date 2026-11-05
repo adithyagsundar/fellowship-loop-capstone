@@ -1,0 +1,41 @@
+**Review of the input task, base revision e500c44**
+
+The port is correct and integrated. I found no material defects. I read the code and the saved test evidence but did not rebuild or rerun the tests myself.
+
+**Coder report vs. tree**
+- The coder reported no changes this turn. The git status snapshot shows the work already in the tree: `platform/doomgeneric_wasm.c`, `web/index.html`, `web/audio.js`, `build.sh` and the tests.
+- `third_party/` and `assets/` are untouched. The only modified `loop/` files are `loop/README.md`, `loop/agents.yaml` and `loop/loop.sh`. The coder claims no edits, so I attribute those to the user.
+
+**Input**
+- The key codes in `web/index.html:30-41` match `third_party/doomgeneric/doomkeys.h`:
+  - Ctrl is `0xa3` (`KEY_FIRE`).
+  - Space is `0xa2` (`KEY_USE`).
+  - A and D are `0xa0` and `0xa1` (strafe).
+  - P is `0xff` (`KEY_PAUSE`).
+  - Shift is `0x80+0x36` (`KEY_RSHIFT`).
+- Handling of overlapping aliases and releasing keys on blur or tab hide (`web/index.html:48-77`) is sound.
+- The key queue (`platform/doomgeneric_wasm.c:20-87`) has bounds checks. It drops events when full and rejects key values outside 1–255.
+
+**WAD and build**
+- `build.sh` preloads the WAD at `/doom1.wad`.
+- `main()` checks the `IWAD` magic bytes and reports a visible error if the file is missing or invalid (`platform/doomgeneric_wasm.c:128-135`).
+- The engine source list excludes the SDL and Allegro files. The toolchain is Emscripten 4.0.18, the version the README pins.
+
+**Rendering and timing**
+- The 0x00RRGGBB to RGBA conversion is correct (`platform/doomgeneric_wasm.c:49-51`).
+- `emscripten_sleep(0)` yields to the browser each frame.
+
+**Evidence**
+`artifacts/runs/browser-2026-11-05T00-08-05.119Z-57039/results.json` shows PASS on all 15 checks.
+- **Coverage:** boot and rendering, real keyboard input, movement, turning, firing, audio, pause and menu buttons, and no page errors.
+- **Pacing:** about 35 simulation tics per second, which is the right rate for Doom.
+- **Provenance:** it records the revision, a dirty-tree listing, file hashes and Chrome version. `dist/doom.data` has the same hash as `assets/doom1.wad`.
+- **Limitations:** the file lists its own limitations honestly.
+
+**Minor gaps (not blocking)**
+- Mouse input is not mapped, so mouse fire and aim are missing. The coder and README both disclose this.
+- Door and switch use, and save persistence, are not tested.
+- The coder did not run the `DOOM_TEST_FAULT` variants this turn, so fault detection was not re-confirmed.
+- The evidence run is tied to a dirty working tree, not a commit. It is identified by hash, which is acceptable, but the changes should be committed.
+
+VERDICT: PASS

@@ -13,14 +13,11 @@ A working game is necessary, but it does not establish that your system works.
 
 ## Your responsibility
 
-This is a brief for you, the student. You must turn it into an architecture,
+You must turn it into an architecture,
 role-specific instructions, acceptance criteria, and an evaluation plan.
-Passing this README to an ordinary coding agent and submitting its output
-does not satisfy the assignment.
 
 You own the system design and the decisions about what evidence to trust.
-Agents implement and repair the port. Design the loop yourself; repository
-agent instructions prohibit agents from designing it or modifying `loop/`.
+Agents implement and repair the port.
 You must explain your choices and demonstrate their consequences.
 Record manual interventions rather than attributing them to the loop.
 
@@ -110,6 +107,42 @@ contains sound effects and music; no additional sound assets are required.
 
 ## Agent section for setup
 
+### Build and test the current browser port
+
+The browser port is now implemented. With Emscripten **4.0.18**, Python 3,
+Node.js **22 or newer**, and Google Chrome installed, run from the repository root:
+
+```sh
+source ~/Developer/emsdk/emsdk_env.sh
+bash build.sh
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
+```
+
+Open <http://localhost:8000>. Click **Enable sound** or focus the canvas and
+press a game key. Arrows move/turn; W/S move forward/back; A/D strafe;
+Ctrl fires; Space uses; Shift runs; 1–7 select available weapons;
+Tab toggles the map; Enter/Esc operate menus; P pauses/resumes.
+The page also provides Menu, Pause/Resume, Mute, and Volume controls.
+
+The build produces `dist/index.html`, `audio.js`, `doom.js`, `doom.wasm`,
+and `doom.data`. Serve or deploy all five together. Set `CHROME_BIN` if
+Chrome is outside the locations detected by the browser test.
+
+Tests save source/build hashes, browser logs, screenshots, and results in
+unique `artifacts/runs/browser-*` directories. Audio checks measure Web Audio
+samples, not physical speaker output. Sound effects use the supplied WAD;
+music uses simplified synthesized instruments rather than OPL emulation.
+Door/switch activation, mouse aiming, and save persistence are not covered
+by these checks. Passing them does not establish completion of the
+agent-system evaluation described above.
+
+To confirm fault detection, prefix the test command with
+`DOOM_TEST_FAULT=ignore-input`, `DOOM_TEST_FAULT=blank-canvas`, or
+`DOOM_TEST_FAULT=silent-effects`. These browser-only faults are expected to
+produce a failing test exit code and do not modify the port. They are
+fault-detection checks, not the required undisclosed regression-repair exercise.
+
 ### macOS without Docker
 
 Install the build tools directly on your Mac to compile and test the browser
@@ -169,23 +202,16 @@ setup script; run the steps below manually.
    `Emscripten works!`. Press **Control-C** in Terminal to stop the server.
    This verifies the toolchain and local serving, not the game.
 
-4. **Have your agents implement and build the game.** The supplied platform callbacks are
-   empty, there is no entry point or build script, and the HTML does not yet
-   load a compiled module. These are student implementation tasks; see
-   [platform/README.md](platform/README.md). Document the actual build command
-   once implemented. A completed build could produce:
+4. **Build the implemented game.** From this repository's root, run:
 
-   ```text
-   dist/
-     index.html
-     doom.js
-     doom.wasm
-     doom.data
+   ```sh
+   source ~/Developer/emsdk/emsdk_env.sh
+   bash build.sh
+   python3 -m unittest discover -s tests -p 'test_*.py' -v
    ```
 
-   The exact filenames depend on the build configuration. For example,
-   `doom.data` could contain the packaged shareware WAD. The build must make
-   that WAD available to the engine inside the browser module.
+   The build writes `index.html`, `audio.js`, `doom.js`, `doom.wasm`, and
+   `doom.data` to `dist/`. The shareware WAD is packaged into `doom.data`.
 
 5. **Test the completed game locally.** Once the build output is in `dist/`,
    run this from the repository root:
@@ -208,18 +234,11 @@ setup script; run the steps below manually.
 
 ### How to run the loop
 
-There is no runnable loop in the starter. `loop/loop.sh` contains only shell
-setup, and `loop/agents.yaml` is empty. Running the script currently does no
-work. Students must implement and document their own entry point and
-dependencies before running it.
-
-If your completed implementation uses `loop/loop.sh`, run it from the
-repository root:
-
-```sh
-chmod +x ./loop/loop.sh
-./loop/loop.sh
-```
+The current student-owned implementation and its run/resume instructions
+are documented in [loop/README.md](loop/README.md). See the
+[submission evidence index](artifacts/runs/submission-20261104/README.md)
+for verified results and outstanding assignment requirements. The recorded
+`AUTOMATED_PHASE_COMPLETE` status does not establish full capstone completion.
 
 ## What to hand in
 
@@ -238,3 +257,11 @@ Be prepared to explain why each role and handoff earns its place in the system.
 
 Keep the engine's license notices; see [LICENSE](LICENSE). Use only the
 shareware `doom1.wad` for this assignment. Do not add commercial WADs.
+
+## Submission evidence
+
+See [the submission evidence index](artifacts/runs/submission-20261104/README.md),
+[verification instructions](tests/README.md), and
+[evidence-based reflection](artifacts/runs/submission-20261104/reflection.md).
+The evidence index distinguishes verified port behavior from remaining
+capstone requirements.

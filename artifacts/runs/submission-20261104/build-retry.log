@@ -1,0 +1,17 @@
+Setting up EMSDK environment (suppress these messages with EMSDK_QUIET=1)
+Adding directories to PATH:
+PATH += /Users/adithyagnanasundar/Developer/emsdk
+PATH += /Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten
+
+Setting environment variables:
+PATH = /Users/adithyagnanasundar/Developer/emsdk:/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten:/Users/adithyagnanasundar/.antigravity-ide/antigravity-ide/bin:/Users/adithyagnanasundar/.nvm/versions/node/v22.15.0/bin:/Users/adithyagnanasundar/anaconda3/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/Users/adithyagnanasundar/.codex/tmp/arg0-macos/codex-arg0mrOdSF:/Users/adithyagnanasundar/.local/bin:/Users/adithyagnanasundar/.antigravity-ide/extensions/openai.chatgpt-26.1021.22027-darwin-arm64/bin/macos-aarch64
+EMSDK = /Users/adithyagnanasundar/Developer/emsdk
+EMSDK_NODE = /Users/adithyagnanasundar/Developer/emsdk/node/24.19.0_64bit/bin/node
+EMSDK_PYTHON = /Users/adithyagnanasundar/Developer/emsdk/python/3.13.3_64bit/bin/python3
+SSL_CERT_FILE = /Users/adithyagnanasundar/Developer/emsdk/python/3.13.3_64bit/lib/python3.13/site-packages/certifi/cacert.pem
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 4.0.18 (fae107463db4d20a276a27ede393048deaeebf76)
+Copyright (C) 2025 the Emscripten authors (see AUTHORS.txt)
+This is free and open source software under the MIT license.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+built /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/dist

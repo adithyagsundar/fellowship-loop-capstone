@@ -1,0 +1,30 @@
+{
+  "source_revision": "800cf53f004843d2aed87eac883752d5abd49551",
+  "build": "PASS",
+  "unittest": "PASS (2 tests)",
+  "browser_checks_passed": 16,
+  "browser_evidence": "artifacts/runs/browser-2026-11-05T00-35-45.381Z-63389",
+  "hash_mismatches": [],
+  "fault_detection": [
+    {
+      "fault": "ignore-input",
+      "exit_code": 1,
+      "expected_failure_detected": true
+    },
+    {
+      "fault": "blank-canvas",
+      "exit_code": 1,
+      "expected_failure_detected": true
+    },
+    {
+      "fault": "silent-effects",
+      "exit_code": 1,
+      "expected_failure_detected": true
+    }
+  ],
+  "initial_sandbox_failures_preserved": [
+    "build.log",
+    "tests.log"
+  ],
+  "full_capstone_acceptance": "INCOMPLETE: see README.md remaining acceptance blockers"
+}

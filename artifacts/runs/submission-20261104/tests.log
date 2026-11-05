@@ -1,0 +1,31 @@
+test_bundled_scores_and_invalid_data (test_audio.MusicData.test_bundled_scores_and_invalid_data) ... Validated 13 MUS scores, truncation rejection and deferred audio initialization
+
+ok
+test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port) ... Error: listen EPERM: operation not permitted 127.0.0.1
+    at Server.setupListenHandle [as _listen2] (node:net:1917:21)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-33-56.053Z-62613
+
+FAIL
+
+======================================================================
+FAIL: test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/test_browser.py", line 22, in test_playable_browser_port
+    self.assertEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Error: listen EPERM: operation not permitted 127.0.0.1
+    at Server.setupListenHandle [as _listen2] (node:net:1917:21)
+    at listenInCluster (node:net:1996:12)
+    at node:net:2205:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-33-56.053Z-62613
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.230s
+
+FAILED (failures=1)

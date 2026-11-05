@@ -1,0 +1,9 @@
+
+DevTools listening on ws://127.0.0.1:52529/devtools/browser/0ade7ee8-d2b5-4f71-ae9c-921e3e8defa6
+Trying to load the allocator multiple times. This is *not* supported.
+[63206:6263133:1104/163520.222251:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[63206:6263203:1104/163520.222465:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[63206:6263133:1104/163520.222637:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[63206:6263203:1104/163520.222678:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[63206:6263133:1104/163520.224946:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
+[63206:6263203:1104/163520.225005:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670

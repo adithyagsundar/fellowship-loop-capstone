@@ -1,0 +1,36 @@
+The evidence supports the integration task. I did not run anything myself, and I did not interact with a browser. This verdict rests on the saved artifacts and my reading of the test code.
+
+**What the evidence shows**
+- `tests/browser.mjs` drives a real headless Chrome over the DevTools protocol. It serves the built `dist/` over HTTP and sends real `Input.dispatchKeyEvent` and `Input.dispatchMouseEvent` events. It never calls the engine's key function directly.
+- The harness has fault-injection modes (`ignore-input`, `blank-canvas`, `silent-effects`). These show the checks can fail when something is broken.
+- The latest run, `artifacts/runs/browser-2026-11-05T00-13-18.974Z-59542/`, has `results.json` with status PASS and an empty `errors` array. Every request returned 200 or 204. It also has screenshots (`boot.png`, `menu.png`, `level.png`, `after-input.png`) and `source.patch`, and it records revision `e500c44`.
+- `attempt-1-checks.txt` shows the Emscripten build succeeded, the Python acceptance tests ran 2 tests with OK, and all 16 browser checks passed.
+- The 16 checks cover these behaviours:
+  - WAD and wasm load, with rendered pixels on the canvas.
+  - Sound unlocked by a real click.
+  - Keyboard navigation from the menu into a level.
+  - Simulation pacing at about 35 tics per second.
+  - Movement, turning, firing and ammunition use.
+  - Nonzero audio samples for sound effects and music.
+  - Mute and volume.
+  - Use-key press and release.
+  - Blur releasing a held key.
+  - Strafing and run keys.
+  - Weapon selection and the automap.
+  - Menu and pause controls.
+  - No page errors.
+- The reviewer's code reading found no material defects.
+
+**Gaps (disclosed, not blocking for this task)**
+- Save games and config are not persisted across reloads. `build.sh` has no IDBFS or `syncfs` handling, so saves are lost on reload. This is the most significant gap.
+- Mouse aiming is unavailable. The supplied `i_input.c` has mouse event generation commented out, and `third_party/` is read-only.
+- Door and switch activation is checked only as the engine's use-key state, not as a door actually opening.
+- Audio is verified from Web Audio samples, not physical speaker output. Music is simplified synthesis, not OPL emulation.
+- The test uses a synthetic blur event, so real tab-switch behaviour is untested.
+
+**Further checks if you want more confidence**
+1. Reload the page and check that a saved game or config survives.
+2. Walk the player to a door in E1M1 and check that the sector actually opens, rather than only checking `usedown`.
+3. Do a manual or headed-browser play session, because headless Chrome doesn't cover real audio output or tab focus.
+
+VERDICT: PASS

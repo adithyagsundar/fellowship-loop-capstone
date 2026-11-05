@@ -1,0 +1,28 @@
+test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port) ... PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+AssertionError [ERR_ASSERTION]: Escape did not open the menu
+    at until (file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:95:13)
+    at async file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:136:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-14-06.421Z-59748
+
+FAIL
+
+======================================================================
+FAIL: test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/test_browser.py", line 22, in test_playable_browser_port
+    self.assertEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+AssertionError [ERR_ASSERTION]: Escape did not open the menu
+    at until (file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:95:13)
+    at async file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:136:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-14-06.421Z-59748
+
+
+----------------------------------------------------------------------
+Ran 1 test in 32.952s
+
+FAILED (failures=1)

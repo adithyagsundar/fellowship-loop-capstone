@@ -1,0 +1,16 @@
+I made no changes this run. WAD loading was already implemented in the working tree, and the build and tests pass as it stands.
+
+**1. Files changed**
+None. The relevant existing files are `build.sh`, `platform/doomgeneric_wasm.c` and `web/index.html`. The test run wrote a new evidence directory, `artifacts/runs/browser-2026-11-05T00-10-08.931Z-58181`.
+
+**2. What is already implemented**
+- `build.sh` preloads `assets/doom1.wad` into the virtual filesystem as `/doom1.wad`, and `dist/` gets `doom.data`.
+- `main()` in `platform/doomgeneric_wasm.c` opens `/doom1.wad` and checks for the `IWAD` magic before starting. If the file is missing or invalid, it calls `js_fatal` with a visible error. It then starts the engine with `-iwad /doom1.wad`.
+- `web/index.html` reports a failed WAD download instead of hanging on "Loading…".
+
+**3. Verification and what remains**
+- **Results:** `build.sh` succeeded with Emscripten, and `python3 -m unittest discover -s tests -p 'test_*.py'` passed (2 tests, OK). The browser checks covered the WAD music waveform, mute and volume, use press and release, movement, weapon selection and the automap, menu and pause, and absence of page or network errors.
+- **Not covered by the tests:** door and switch activation, mouse aiming, and save persistence.
+- **Fault checks:** I didn't re-run the `DOOM_TEST_FAULT` fault-injection variants.
+- **WAD failure paths:** I didn't exercise the missing-WAD or corrupt-WAD error paths in a browser.
+- **Out of scope:** the loop-level evaluation (undisclosed regressions, resume) is not part of this task, and I did not touch `loop/`.

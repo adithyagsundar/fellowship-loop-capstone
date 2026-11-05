@@ -1,0 +1,6 @@
+PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+AssertionError [ERR_ASSERTION]: Escape did not open the menu
+    at until (file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:95:13)
+    at async file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:136:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-35-06.334Z-63057

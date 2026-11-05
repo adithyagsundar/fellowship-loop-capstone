@@ -1,0 +1,30 @@
+The integration works and I found no material defects, so I'm passing it. This is based on reading the code and the saved browser run. I did not rebuild or rerun anything.
+
+**Evidence**
+- The coder changed no source files and reported that the integration was already in the working tree.
+- `artifacts/runs/browser-2026-11-05T00-12-23.071Z-59237/results.json` shows PASS on all 16 checks. It is tied to revision `e500c44` and records file hashes. The `dist/` hashes for `audio.js` and `index.html` match the `web/` sources, so the tested build matches the current code.
+- Console errors, page errors and failed requests were all empty.
+- Simulation ran at about 35 tics per second. That is the expected Doom rate and within the test's 28–42 window.
+
+**Code review**
+- `platform/doomgeneric_wasm.c`:
+  - Rendering converts the engine's pixel format to RGBA correctly and draws to the canvas.
+  - Input goes through a ring buffer with bounds checks.
+  - `main` fails visibly if the WAD is missing or not an IWAD, and yields to the browser every frame.
+- `platform/doom_audio.c`:
+  - It implements the engine's sound and music modules and routes both to `DoomAudio`.
+  - Sound-effect lumps are copied out of the WAD cache and the cache entry is released.
+- `web/index.html`:
+  - Keys map to Doom's key codes correctly: Ctrl is fire, Space is use, Shift is run, A and D strafe, and Tab opens the automap.
+  - Overlapping aliases such as W and the up arrow are handled.
+  - Held keys are released on blur and when the tab is hidden.
+  - Audio is unlocked by a user gesture.
+- `build.sh` packages the WAD, builds with Asyncify, and copies the web files to `dist/`.
+
+**Non-blocking gaps** (the coder and the test limitations list both disclose these)
+1. Save games and config are not persisted across reloads. The engine writes to `./.savegame/` and `.default.cfg` in Emscripten's in-memory filesystem (see the console log in `results.json`), and `build.sh` has no IDBFS or `syncfs` handling. Saved games are therefore lost on reload. This is the most notable missing feature.
+2. Mouse aiming is not available. `platform/README.md:20` notes that mouse event generation is commented out in the supplied `i_input.c`, and `loop/` and `third_party/` are read-only.
+3. Door and switch activation is only checked as engine `usedown` state. Music is simplified synthesis rather than OPL emulation.
+4. `index.html` swallows keys such as Tab and F1–F10 with `preventDefault` while the game has focus. This is intended.
+
+VERDICT: PASS

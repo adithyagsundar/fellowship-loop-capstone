@@ -1,0 +1,114 @@
+{
+  "task": "Evaluate the existing browser port and existing student-authored Claude process",
+  "revision": "e500c440656622db5ab3f8fb7df73d8b5998eeb3",
+  "working_tree_uncommitted": true,
+  "updated_utc": "2026-11-05T00:16:04.042342+00:00",
+  "build_and_browser_tests": "PASS",
+  "latest_pass": "artifacts/runs/browser-2026-11-05T00-13-18.974Z-59542/results.json",
+  "latest_test_hashes_match_current_files": true,
+  "task_markers": [
+    "build",
+    "input",
+    "integration",
+    "rendering",
+    "wad"
+  ],
+  "new_review_and_test_passes": [
+    "rendering",
+    "input",
+    "wad",
+    "integration"
+  ],
+  "build_task_note": "build.done existed before this evaluation; fresh local build and tests passed, but build role was skipped by existing script",
+  "interruption_resumption": {
+    "result": "PASS at task granularity",
+    "interrupted": "input coder stage via Ctrl-C",
+    "resumed": "Fresh invocation skipped completed build/rendering and restarted unfinished input without manually reconstructing a prompt",
+    "evidence": [
+      "interrupted-loop.log",
+      "interruption.json",
+      "interrupted-loop-state/",
+      "resumed-loop.log"
+    ]
+  },
+  "source_files_changed_since_start": [
+    "platform/doomgeneric_wasm.c",
+    "web/index.html"
+  ],
+  "tests_unchanged": true,
+  "loop_unchanged": true,
+  "manual_interventions": [
+    "User explicitly approved sending repository content to Claude and allowing coder edits",
+    "Preserved existing state and source snapshots",
+    "Updated README with actual build/test/run instructions",
+    "Launched the unchanged script five times including one deliberately interrupted invocation; multiple launches were necessary to finish remaining tasks",
+    "Triggered browser-only diagnostic faults for detection checks"
+  ],
+  "findings": [
+    {
+      "severity": "high",
+      "finding": "Each completed invocation printed AUTOMATED_PHASE_COMPLETE after one unfinished task even while later configured tasks were missing done markers",
+      "evidence": [
+        "loop.log",
+        "resumed-loop.log",
+        "wad-loop.log"
+      ],
+      "resolution": "Not fixed; loop implementation is student-owned. Remaining tasks were completed by manual restarts."
+    },
+    {
+      "severity": "high",
+      "finding": "No evidence of MCP-enforced coder filesystem boundaries; prompts and YAML permissions do not establish protection",
+      "resolution": "Student-owned work remains"
+    },
+    {
+      "severity": "medium",
+      "finding": "Dollar budget in YAML is not passed to Claude and text output does not capture actual cost/token usage",
+      "resolution": "Actual cost and token counts unknown; not invented"
+    }
+  ],
+  "remaining": [
+    "Two teammate/instructor-introduced undisclosed regressions and demonstrated autonomous repair",
+    "Student-owned loop defect correction and MCP/permission enforcement",
+    "Resource-accounting evidence",
+    "Student reflection and final submission review",
+    "Readable committed source history"
+  ],
+  "scope_limits": [
+    "Audio checks measure the Web Audio graph, not physical speakers or musical fidelity. Music uses simplified instruments, not OPL emulation.",
+    "Does not verify mouse aiming or save persistence.",
+    "Use checks engine input state, not successful door/switch interaction.",
+    "Focus-loss check dispatches synthetic blur; OS focus transitions are not verified.",
+    "Timing tolerance is 28\u201342 simulation tics/s over three seconds.",
+    "No claim of enforced role permissions or full assignment acceptance."
+  ],
+  "overall": "PORT VERIFIED; FULL CAPSTONE INCOMPLETE",
+  "next_action": "Student addresses loop requirements; teammate/instructor supplies the required blind regressions. Existing verification is ready to rerun.",
+  "fault_detection": {
+    "result": "PASS",
+    "evidence": "artifacts/runs/evaluation-20261105T000431Z/fault-checks.json",
+    "checks": [
+      {
+        "fault": "ignore-input",
+        "exit_code": 1,
+        "detected_expected_failure": true,
+        "expected_message": "Escape did not open the menu",
+        "log": "artifacts/runs/evaluation-20261105T000431Z/ignore-input.log"
+      },
+      {
+        "fault": "blank-canvas",
+        "exit_code": 1,
+        "detected_expected_failure": true,
+        "expected_message": "Canvas is blank",
+        "log": "artifacts/runs/evaluation-20261105T000431Z/blank-canvas.log"
+      },
+      {
+        "fault": "silent-effects",
+        "exit_code": 1,
+        "detected_expected_failure": true,
+        "expected_message": "No sound-effect waveform while firing",
+        "log": "artifacts/runs/evaluation-20261105T000431Z/silent-effects.log"
+      }
+    ],
+    "counts_as_blind_repair": false
+  }
+}

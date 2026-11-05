@@ -1,0 +1,29 @@
+=== Emscripten build ===
+built /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/dist
+=== Python acceptance tests ===
+Validated 13 MUS scores, truncation rejection and deferred audio initialization
+
+.PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+PASS Real keyboard events open menu and start a new game
+PASS Continuous rendering and simulation pacing
+PASS Movement changes world position and rendered view
+PASS Turning changes player angle
+PASS Firing consumes ammunition
+PASS Pistol sound produces a nonzero audio waveform
+PASS WAD music score produces a nonzero audio waveform
+PASS Mute, unmute and volume controls affect actual output samples
+PASS Use press and release reach the game simulation
+PASS Blur handler releases a held turn key (synthetic blur)
+PASS W/S movement, A/D strafing and overlapping Shift run keys
+PASS Weapon selection and automap toggle
+PASS Menu and pause/resume buttons, P shortcut, music pause/resume
+PASS No uncaught page errors, console errors or failed network requests
+PASS: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-08-55.630Z-57400
+
+.
+----------------------------------------------------------------------
+Ran 2 tests in 20.499s
+
+OK
+AUTOMATED_CHECKS_PASSED

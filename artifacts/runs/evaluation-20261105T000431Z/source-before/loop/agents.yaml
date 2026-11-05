@@ -1,0 +1,65 @@
+project:
+  name: doom-wasm-port
+  description: Port DOOM from C to WebAssembly using Emscripten
+
+model:
+  provider: claude
+  name: sonnet
+
+limits:
+  max_retries: 3
+  max_turns_per_agent: 15
+  max_budget_usd_per_agent: 2.00
+
+agents:
+  coder:
+    role: implementation
+    description: Implements and repairs the DOOM WebAssembly port
+    responsibilities:
+      - Implement Emscripten build configuration
+      - Connect DOOM rendering to the browser
+      - Implement keyboard input and timing
+      - Load the shareware WAD
+      - Fix bugs reported by reviewer and tester
+    writable_paths:
+      - platform/
+      - web/
+      - build.sh
+      - Makefile
+    forbidden_paths:
+      - tests/
+      - loop/
+      - artifacts/acceptance/
+
+  reviewer:
+    role: code_review
+    description: Independently reviews the coder's implementation
+    responsibilities:
+      - Review code for correctness
+      - Check Emscripten integration
+      - Identify unsafe or incomplete implementations
+      - Report defects with file references
+    read_only: true
+
+  tester:
+    role: verification
+    description: Independently verifies the browser port
+    responsibilities:
+      - Check build results
+      - Validate WAD loading
+      - Verify rendering and input
+      - Report reproducible failures
+      - Verify fixes after repairs
+    read_only: true
+
+tasks:
+  - id: build
+    description: Create an Emscripten build system for DOOM
+  - id: rendering
+    description: Connect DOOM framebuffer output to an HTML canvas
+  - id: input
+    description: Implement keyboard input for movement and shooting
+  - id: wad
+    description: Package and load assets/doom1.wad
+  - id: integration
+    description: Integrate components and make DOOM playable in a browser

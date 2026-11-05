@@ -1,0 +1,22 @@
+1. **Files changed:** I changed no source files. I added `artifacts/loop-state/integration/coder-handoff.md`, which records the base revision, the evidence path and the open items.
+
+2. **What I implemented:** I found the integration already in the working tree. That covers `platform/doomgeneric_wasm.c`, `platform/doom_audio.c`, `platform/SDL_mixer.h`, `web/index.html`, `web/audio.js` and `build.sh`. I had nothing to add.
+   - I rebuilt with Emscripten via `bash build.sh`, and it succeeded.
+   - I ran `python3 -m unittest discover -s tests -p 'test_*.py'`. Both tests passed (2 tests, OK).
+   - Evidence is in `artifacts/runs/browser-2026-11-05T00-12-23.071Z-59237`.
+   - The browser checks that passed include:
+     - sound and music output
+     - mute and volume
+     - key press and release
+     - blur releasing a held key
+     - movement and strafing
+     - weapon selection and the automap
+     - the menu and pause controls
+     - no page errors
+   - I did not touch `tests/` or `loop/`.
+
+3. **What remains incomplete:**
+   - Door and switch activation, mouse aiming, and save/config persistence across reloads are not covered by the tests, and I didn't verify them.
+   - Music uses simplified synthesis, not OPL emulation.
+   - The tests measure Web Audio samples, not physical speaker output.
+   - The undisclosed-regression repair, the resumption demonstration and the independent reviewer/tester passes are loop-level work for you, not something I could do here.

@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-05T00:07:45.516836+00:00",
+  "action": "Sent Ctrl-C to the loop terminal while input coder invocation was active",
+  "completed_markers": [
+    "build.done",
+    "rendering.done"
+  ],
+  "expected_resume": "Skip completed build/rendering; restart unfinished input with fresh Claude invocation",
+  "manual_intervention": true
+}

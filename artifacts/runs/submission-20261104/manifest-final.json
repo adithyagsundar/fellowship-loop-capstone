@@ -1,0 +1,19 @@
+{
+  "baseline_revision": "e500c440656622db5ab3f8fb7df73d8b5998eeb3",
+  "source_hashes": {
+    "README.md": "3b6b911e1321df64d3c084dfb3f610cdd0b5bb4fa79a2f4145ac8d2c9e76222c",
+    "build.sh": "aa2b17445e115aec78658bb9d5e462bf9eb60e35b1fb7e9eb1365a68ef86b784",
+    "platform/doom_audio.c": "237b362aef61e302705ae8bbc3f194b94835f6cff7280b6a98cee3c746c0d00b",
+    "platform/doomgeneric_wasm.c": "569c8eb17d6179f1638d3f9bd57385e7f35198eb4b208c35812942c65aecacd5",
+    "platform/README.md": "6512268a63088e4a68b5f1d3fb5bd29dabc1bd15018fc0391f64d3bfdc5ecd22",
+    "platform/SDL_mixer.h": "f961d2689ece9de5ae952ec07f74d37cf923639330a2c22b1ee408ae31bd8ff0",
+    "web/index.html": "bd5b5efc0f5bb8b647f5af89ad7ebb6f8913dfc7c020ef4da97291891200fffd",
+    "web/audio.js": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5",
+    "tests/test_audio.py": "a781a39be68d2aca808baff13ee9e4b1abc82b93fb9b192e31212fc064a0b643",
+    "tests/browser.mjs": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+    "tests/README.md": "167071bd1d5d17e6b8aa4060eadb555d0b6a82eaa5c1789966c78645c9f8d95e",
+    "tests/test_browser.py": "fb1496c40dcecb8d52ec3e64f32eaacdfd32909564270e4b656f27288b3d439c"
+  },
+  "protected_files_unchanged": true,
+  "implementation_revision": "800cf53f004843d2aed87eac883752d5abd49551"
+}

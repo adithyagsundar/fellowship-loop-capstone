@@ -1,0 +1,22 @@
+test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port) ... AssertionError [ERR_ASSERTION]: Canvas is blank
+    at file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:115:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-14-39.331Z-60099
+
+FAIL
+
+======================================================================
+FAIL: test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/test_browser.py", line 22, in test_playable_browser_port
+    self.assertEqual(result.returncode, 0, result.stdout)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : AssertionError [ERR_ASSERTION]: Canvas is blank
+    at file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:115:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T00-14-39.331Z-60099
+
+
+----------------------------------------------------------------------
+Ran 1 test in 6.943s
+
+FAILED (failures=1)
