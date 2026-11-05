@@ -1,0 +1,5 @@
+Running protected baseline verification
+integration: attempt 1, coder
+integration: attempt 1, reviewer
+integration: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance

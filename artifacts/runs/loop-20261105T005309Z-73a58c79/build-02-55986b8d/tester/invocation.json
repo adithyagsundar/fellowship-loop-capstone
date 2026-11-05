@@ -1,0 +1,31 @@
+{
+  "role": "tester",
+  "argv_without_prompt": [
+    "claude",
+    "-p",
+    "<saved in prompt.txt>",
+    "--model",
+    "sonnet",
+    "--tools",
+    "",
+    "--allowedTools",
+    "mcp__doom__*",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/mcp.json",
+    "--setting-sources",
+    "",
+    "--disable-slash-commands",
+    "--no-chrome",
+    "--no-session-persistence",
+    "--permission-mode",
+    "dontAsk",
+    "--max-turns",
+    "20",
+    "--max-budget-usd",
+    "2.0",
+    "--output-format",
+    "json"
+  ],
+  "source": "6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12"
+}

@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 16573,
+  "stop_reason": "end_turn",
+  "session_id": "ac65dcde-e154-42c1-b772-7ea65cda6aae",
+  "total_cost_usd": 0.0555329,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 12877,
+    "cache_read_input_tokens": 31644,
+    "output_tokens": 2016,
+    "output_tokens_details": {
+      "thinking_tokens": 36
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 12877
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 530,
+        "cache_read_input_tokens": 14498,
+        "cache_creation_input_tokens": 1216,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 1216,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2016,
+      "cacheReadInputTokens": 31644,
+      "cacheCreationInputTokens": 12877,
+      "webSearchRequests": 0,
+      "costUSD": 0.0555329,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 36,
+      "cacheCreationEphemeral5mInputTokens": 12877,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved the handoff with verdict DONE. I changed no files, and I ran none of the acceptance checks myself because no execution tool was available.\n\nThe prior protected baseline run (`baseline-c802e8a5`) passed on the same source digest, `db7ae64a\u2026`. Emscripten 4.0.18 built the port and all 22 tests passed, covering the browser, audio and loop checks. I found no defect to repair, so I left `platform/` and `web/` alone.\n\nI read `loop/acceptance.md`, `platform/README.md` and the baseline artifacts. I did not read `README.md`, `loop/README.md`, `artifacts/README.md` or the source in `platform/` and `web/`, so I didn't look at the source for defects.\n\nThese requirements are not covered by the automated checks:\n- Door and switch activation in actual gameplay\n- OS focus transitions (only a synthetic blur is tested)\n- Physical speaker output and musical fidelity\n- Save persistence across reloads\n- Mouse aiming\n- A manual playthrough, which has not been done\n- Autonomous repair of the two blind regressions, which is NOT PERFORMED because you asked to omit it\n- Live resumption on real runs (the tests use fixtures)\n- Design rationale and reflection write-ups\n- Historical token and cost usage, which remains unknown\n\nThis is not full capstone acceptance. A reviewer pass and a fresh tester run on that digest are still needed.\n\nThe handoff is at `artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/coder/handoff.json`.",
+  "ttft_ms": 1269,
+  "type": "result",
+  "duration_ms": 16672,
+  "uuid": "b5f8aca5-f2e3-40a8-95ad-27cecc386ff7",
+  "ttft_stream_ms": 1134,
+  "time_to_request_ms": 25,
+  "first_content_frame_ms": 1135,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

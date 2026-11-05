@@ -1,0 +1,31 @@
+{
+  "role": "reviewer",
+  "argv_without_prompt": [
+    "claude",
+    "-p",
+    "<saved in prompt.txt>",
+    "--model",
+    "sonnet",
+    "--tools",
+    "",
+    "--allowedTools",
+    "mcp__doom__*",
+    "--strict-mcp-config",
+    "--mcp-config",
+    "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/mcp.json",
+    "--setting-sources",
+    "",
+    "--disable-slash-commands",
+    "--no-chrome",
+    "--no-session-persistence",
+    "--permission-mode",
+    "dontAsk",
+    "--max-turns",
+    "20",
+    "--max-budget-usd",
+    "2.0",
+    "--output-format",
+    "json"
+  ],
+  "source": "bf73c249df620c235e825b20e4b02246a77791370a50e30c0ef55702d2610de1"
+}

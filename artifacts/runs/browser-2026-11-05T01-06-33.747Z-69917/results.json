@@ -1,0 +1,347 @@
+{
+  "status": "PASS",
+  "fault": "",
+  "started": "2026-11-05T01:06:33.748Z",
+  "checks": [
+    {
+      "name": "WAD and WebAssembly load; canvas contains rendered pixels",
+      "width": 640,
+      "height": 400,
+      "lit": 234272
+    },
+    {
+      "name": "Enable sound button unlocks audio through a real user gesture"
+    },
+    {
+      "name": "Real keyboard events open menu and start a new game"
+    },
+    {
+      "name": "Continuous rendering and simulation pacing",
+      "before": {
+        "time": 3740.600000023842,
+        "frames": 209,
+        "tics": 92
+      },
+      "after": {
+        "time": 6742.199999988079,
+        "frames": 419,
+        "tics": 197
+      },
+      "ticsPerSecond": 34.981343283998875
+    },
+    {
+      "name": "Movement changes world position and rendered view",
+      "start": [
+        69206016,
+        -236978176
+      ],
+      "moved": [
+        69201609,
+        -226019395
+      ]
+    },
+    {
+      "name": "Turning changes player angle"
+    },
+    {
+      "name": "Firing consumes ammunition",
+      "before": 50,
+      "after": 47
+    },
+    {
+      "name": "Pistol sound produces a nonzero audio waveform",
+      "rms": 0.13774659940414885
+    },
+    {
+      "name": "WAD music score produces a nonzero audio waveform",
+      "rms": 0.0049845556980240525
+    },
+    {
+      "name": "Mute, unmute and volume controls affect actual output samples"
+    },
+    {
+      "name": "Use press and release reach the game simulation"
+    },
+    {
+      "name": "Blur handler releases a held turn key (synthetic blur)"
+    },
+    {
+      "name": "W/S movement, A/D strafing and overlapping Shift run keys"
+    },
+    {
+      "name": "Weapon selection and automap toggle"
+    },
+    {
+      "name": "Menu and pause/resume buttons, P shortcut, music pause/resume"
+    },
+    {
+      "name": "No uncaught page errors, console errors or failed network requests"
+    }
+  ],
+  "console": [
+    {
+      "type": "log",
+      "args": [
+        "                           Doom Generic 0.1"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Z_Init: Init zone memory allocation daemon. "
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "zone memory: 0x354e40, 600000 allocated for zone"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Using . for configuration and saves"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "V_Init: allocate screens."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "M_LoadDefaults: Load system defaults."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "saving config in .default.cfg"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "W_Init: Init WADfiles."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " adding /doom1.wad"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Using ./.savegame/ for savegames"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "                            DOOM Shareware"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " Doom Generic is free software, covered by the GNU General Public"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " License.  There is NO warranty; not even for MERCHANTABILITY or FITNESS"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " FOR A PARTICULAR PURPOSE. You are welcome to change and distribute"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        " copies under certain conditions. See the source for more information."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "==========================================================================="
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_Init: Setting up machine state."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "M_Init: Init miscellaneous info."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "R_Init: Init DOOM refresh daemon - ..................."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "P_Init: Init Playloop state."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "S_Init: Setting up sound."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "D_CheckNetGame: Checking network game status."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "startskill 2  deathmatch: 0  startmap: 1  startepisode: 1"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "player 1 of 1 (1 nodes)"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "Emulating the behavior of the 'Doom 1.9' executable."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "HU_Init: Setting up heads up display."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "ST_Init: Init status bar."
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: framebuffer: x_res: 640, y_res: 400, x_virtual: 640, y_virtual: 400, bpp: 32"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: framebuffer: RGBA: 8888, red_off: 16, green_off: 8, blue_off: 0, transp_off: 24"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: DOOM screen size: w x h: 320 x 200"
+      ]
+    },
+    {
+      "type": "log",
+      "args": [
+        "I_InitGraphics: Auto-scaling factor: 2"
+      ]
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:54518/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54518/doom.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54518/audio.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54518/doom.data",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54518/doom.wasm",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:54518/favicon.ico",
+      "status": 204
+    },
+    {
+      "url": "http://127.0.0.1:54518/favicon.ico",
+      "status": 204
+    }
+  ],
+  "revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+  "workingTree": "?? artifacts/runs/browser-2026-11-05T00-51-57.746Z-65927/\n?? artifacts/runs/browser-2026-11-05T00-53-50.488Z-66388/\n?? artifacts/runs/browser-2026-11-05T00-55-18.094Z-66792/\n?? artifacts/runs/browser-2026-11-05T00-56-38.630Z-67211/\n?? artifacts/runs/browser-2026-11-05T00-58-04.411Z-67649/\n?? artifacts/runs/browser-2026-11-05T00-59-30.884Z-68071/\n?? artifacts/runs/browser-2026-11-05T01-00-56.861Z-68486/\n?? artifacts/runs/browser-2026-11-05T01-02-19.789Z-68905/\n?? artifacts/runs/browser-2026-11-05T01-05-21.141Z-69385/\n?? artifacts/runs/browser-2026-11-05T01-06-18.418Z-69631/\n?? artifacts/runs/browser-2026-11-05T01-06-32.900Z-69863/\n?? artifacts/runs/loop-20261105T005309Z-73a58c79/\n?? artifacts/runs/loop-20261105T010516Z-98b10905/\n?? artifacts/runs/readiness-20261104/\n?? artifacts/runs/verification-867c826e3b85/\n?? artifacts/runs/verification-f95b0e3feecb/\n?? artifacts/state.json\n?? artifacts/submission-readiness-20261104.md\n",
+  "hashes": {
+    "build.sh": "aa2b17445e115aec78658bb9d5e462bf9eb60e35b1fb7e9eb1365a68ef86b784",
+    "platform/doomgeneric_wasm.c": "569c8eb17d6179f1638d3f9bd57385e7f35198eb4b208c35812942c65aecacd5",
+    "platform/doom_audio.c": "237b362aef61e302705ae8bbc3f194b94835f6cff7280b6a98cee3c746c0d00b",
+    "platform/SDL_mixer.h": "f961d2689ece9de5ae952ec07f74d37cf923639330a2c22b1ee408ae31bd8ff0",
+    "web/audio.js": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5",
+    "dist/audio.js": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5",
+    "web/index.html": "bd5b5efc0f5bb8b647f5af89ad7ebb6f8913dfc7c020ef4da97291891200fffd",
+    "tests/test_browser.py": "fb1496c40dcecb8d52ec3e64f32eaacdfd32909564270e4b656f27288b3d439c",
+    "tests/test_audio.py": "a781a39be68d2aca808baff13ee9e4b1abc82b93fb9b192e31212fc064a0b643",
+    "tests/browser.mjs": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+    "assets/doom1.wad": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "dist/doom.js": "a02b242388898df57f82520d6af3956cf4cd65129c6e67e14eab7ec839753041",
+    "dist/doom.wasm": "9735d0654a65514367d5a56ca7b98a7c4689c1317caac5fecfb58429ca8f8239",
+    "dist/doom.data": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771",
+    "dist/index.html": "bd5b5efc0f5bb8b647f5af89ad7ebb6f8913dfc7c020ef4da97291891200fffd"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.39",
+    "revision": "@9a31f0acec1854d44e49a73fbf8017598151a583",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "finished": "2026-11-05T01:06:50.802Z",
+  "limitations": [
+    "Audio checks measure the Web Audio graph, not physical speakers or musical fidelity. Music uses simplified instruments, not OPL emulation.",
+    "Does not verify mouse aiming or save persistence.",
+    "Use checks engine input state, not successful door/switch interaction.",
+    "Focus-loss check dispatches synthetic blur; OS focus transitions are not verified.",
+    "Timing tolerance is 28–42 simulation tics/s over three seconds.",
+    "No claim of enforced role permissions or full assignment acceptance."
+  ]
+}

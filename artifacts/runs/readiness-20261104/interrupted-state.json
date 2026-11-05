@@ -1,0 +1,146 @@
+{
+  "status": "INTERRUPTED",
+  "revision": "2a71a8008f2ab757087e227c03337a67c8201110",
+  "source_digest": "bf73c249df620c235e825b20e4b02246a77791370a50e30c0ef55702d2610de1",
+  "completed": [],
+  "attempts": {
+    "build": 1
+  },
+  "usage": [
+    {
+      "role": "coder",
+      "path": "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder",
+      "actual_usd": 0.056495300000000005,
+      "charged_usd": 0.056495300000000005,
+      "usage": {
+        "input_tokens": 10,
+        "cache_creation_input_tokens": 14702,
+        "cache_read_input_tokens": 37303,
+        "output_tokens": 1599,
+        "output_tokens_details": {
+          "thinking_tokens": 77
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 14702
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 516,
+            "cache_read_input_tokens": 13925,
+            "cache_creation_input_tokens": 777,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 777,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-sonnet-5-5": {
+          "inputTokens": 10,
+          "outputTokens": 1599,
+          "cacheReadInputTokens": 37303,
+          "cacheCreationInputTokens": 14702,
+          "webSearchRequests": 0,
+          "costUSD": 0.056495300000000005,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 77,
+          "cacheCreationEphemeral5mInputTokens": 14702,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-sonnet-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "seconds": 14.64
+    },
+    {
+      "role": "reviewer",
+      "path": "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer",
+      "actual_usd": 0.0601718,
+      "charged_usd": 0.0601718,
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 14669,
+        "cache_read_input_tokens": 28533,
+        "output_tokens": 2063,
+        "output_tokens_details": {
+          "thinking_tokens": 141
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 14669
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 580,
+            "cache_read_input_tokens": 13595,
+            "cache_creation_input_tokens": 1074,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1074,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-sonnet-5-5": {
+          "inputTokens": 8,
+          "outputTokens": 2063,
+          "cacheReadInputTokens": 28533,
+          "cacheCreationInputTokens": 14669,
+          "webSearchRequests": 0,
+          "costUSD": 0.0601718,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 141,
+          "cacheCreationEphemeral5mInputTokens": 14669,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-sonnet-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "seconds": 18.814
+    },
+    {
+      "role": "tester",
+      "path": "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/tester",
+      "actual_usd": null,
+      "charged_usd": 2.0
+    }
+  ],
+  "charged_usd": 2.1166671,
+  "seconds": 44.287,
+  "history": [
+    "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/handoff.json",
+    "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/process.json",
+    "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/handoff.json",
+    "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/process.json"
+  ],
+  "events": [],
+  "current_attempt": "artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90",
+  "reason": "Resume with the same run; incomplete attempt retained and counted"
+}

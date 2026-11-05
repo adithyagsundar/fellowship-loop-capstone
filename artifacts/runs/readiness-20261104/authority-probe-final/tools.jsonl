@@ -1,0 +1,1 @@
+{"tool": "write_file", "path": "tests/browser.mjs", "response": {"content": [{"type": "text", "text": "Coder may write only port source in platform/ and web/"}], "isError": true}}

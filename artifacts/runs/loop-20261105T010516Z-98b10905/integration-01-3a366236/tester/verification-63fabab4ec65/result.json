@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "commands": [
+    {
+      "name": "toolchain",
+      "argv": [
+        "emcc",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 0.13
+    },
+    {
+      "name": "build",
+      "argv": [
+        "bash",
+        "build.sh"
+      ],
+      "returncode": 0,
+      "seconds": 4.236
+    },
+    {
+      "name": "tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "seconds": 19.394
+    }
+  ],
+  "compiler": "emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 4.0.18 (fae107463db4d20a276a27ede393048deaeebf76)\nCopyright (C) 2025 the Emscripten authors (see AUTHORS.txt)\nThis is free and open source software under the MIT license.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+}

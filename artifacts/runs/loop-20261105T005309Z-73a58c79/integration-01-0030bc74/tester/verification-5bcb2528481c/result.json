@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "source_digest": "6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12",
+  "commands": [
+    {
+      "name": "build",
+      "returncode": 0,
+      "seconds": 4.432
+    },
+    {
+      "name": "tests",
+      "returncode": 0,
+      "seconds": 20.321
+    }
+  ]
+}

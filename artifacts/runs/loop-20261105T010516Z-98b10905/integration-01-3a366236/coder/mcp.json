@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "doom": {
+      "command": "/opt/homebrew/opt/python@3.13/bin/python3.13",
+      "args": [
+        "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/loop/mcp/server.py",
+        "--root",
+        "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone",
+        "--role",
+        "coder",
+        "--run",
+        "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/loop-20261105T010516Z-98b10905",
+        "--invocation",
+        "/Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/coder"
+      ]
+    }
+  }
+}

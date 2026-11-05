@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "source_digest": "bf73c249df620c235e825b20e4b02246a77791370a50e30c0ef55702d2610de1",
+  "commands": [
+    {
+      "name": "build",
+      "returncode": 0,
+      "seconds": 4.09
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+PASS Real keyboard events open menu and start a new game
+PASS Continuous rendering and simulation pacing
+PASS Movement changes world position and rendered view
+PASS Turning changes player angle
+PASS Firing consumes ammunition
+AssertionError [ERR_ASSERTION]: No sound-effect waveform while firing
+    at until (file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:95:13)
+    at async file:///Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/tests/browser.mjs:168:5
+FAIL: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T01-06-35.769Z-69981

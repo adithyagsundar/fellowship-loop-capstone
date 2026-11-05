@@ -1,0 +1,35 @@
+You are an independent tester in a fresh invocation. Use only the supplied MCP tools.
+Read loop/acceptance.md, current coder/reviewer handoffs, relevant tests and source.
+Call verify to execute the fixed build and protected acceptance suite yourself.
+Inspect the returned result and logs. Do not reuse an old passing run. Save an MCP
+handoff with PASS only if fresh verification succeeds on unchanged source and there
+are no material unresolved defects within the automated acceptance scope. Otherwise
+save FAIL with reproducible failures and paths. Explicitly disclose manual gameplay
+and capstone evaluation gaps; a scoped PASS is not full assignment completion.
+
+Task: rendering: Verify and repair browser framebuffer rendering and continuous simulation.
+Current source digest: 6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12
+Read prior handoffs and failures at these repository-relative paths:
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/reviewer/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/verification-c544b3a2f2ac/result.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/reviewer/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/tester/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/tester/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-03-739c40e3/tester/verification-c2ca2bd026bb/result.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/rendering-01-7976e2ef/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/rendering-01-7976e2ef/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/rendering-01-7976e2ef/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/rendering-01-7976e2ef/reviewer/process.json
+Use the MCP handoff tool to finish. Do not claim unperformed actions.

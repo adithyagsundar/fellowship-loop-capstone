@@ -1,0 +1,37 @@
+{
+  "source_revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+  "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "replies": [
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-03-26",
+        "capabilities": {
+          "tools": {}
+        },
+        "serverInfo": {
+          "name": "doom-loop",
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Coder may write only port source in platform/ and web/"
+          }
+        ],
+        "isError": true
+      }
+    }
+  ],
+  "exit_code": 0,
+  "before": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+  "after": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+  "passed": true
+}

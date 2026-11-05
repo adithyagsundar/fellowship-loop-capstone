@@ -1,0 +1,16 @@
+{
+  "model": "sonnet",
+  "max_retries": 3,
+  "max_turns_per_agent": 20,
+  "max_budget_usd_per_agent": 2.0,
+  "max_budget_usd_per_run": 30.0,
+  "max_seconds_per_agent": 600,
+  "max_seconds_per_run": 3600,
+  "tasks": [
+    {"id": "build", "description": "Inspect the supplied Emscripten 4.0.18 build and verify the browser port builds. Build configuration is human-owned; report required changes instead of bypassing permissions."},
+    {"id": "rendering", "description": "Verify and repair browser framebuffer rendering and continuous simulation."},
+    {"id": "input", "description": "Verify and repair movement, turning, shooting, key release and browser controls."},
+    {"id": "wad", "description": "Verify supplied shareware WAD loading and sound/music integration."},
+    {"id": "integration", "description": "Review the entire port and run all protected acceptance checks. Report uncovered gameplay and system-evaluation requirements honestly."}
+  ]
+}

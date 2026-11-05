@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 11334,
+  "stop_reason": "end_turn",
+  "session_id": "d401a0bc-d19a-4f13-b93b-b909d735a7b3",
+  "total_cost_usd": 0.0393815,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 8719,
+    "cache_read_input_tokens": 20020,
+    "output_tokens": 1557,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 8719
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 497,
+        "cache_read_input_tokens": 10671,
+        "cache_creation_input_tokens": 864,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 864,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1557,
+      "cacheReadInputTokens": 20020,
+      "cacheCreationInputTokens": 8719,
+      "webSearchRequests": 0,
+      "costUSD": 0.0393815,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "cacheCreationEphemeral5mInputTokens": 8719,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved a scoped PASS handoff for the automated port checks only, not for the full assignment.\n\nThe fresh verification I ran passed at source digest 6ef3e2af\u2026, the same digest as the task. The build exited 0 in 4.4s and the tests exited 0 in 20.3s. The evidence is in `artifacts/runs/loop-20261105T005309Z-73a58c79/integration-01-0030bc74/tester/verification-5bcb2528481c`.\n\nI did not read the source, the tests, the build and test logs, or most of the earlier handoffs. I relied on the verify summary, which reports only return codes and timings. So I could not confirm the Emscripten version or whether the short build was cached. I also could not confirm that `tests/test_loop.py` is part of the tests command.\n\n- **Not covered by the automated checks:** real door and switch activation, OS focus transitions, physical speakers and musical fidelity, save persistence, and mouse aiming. No manual playthrough has been done.\n- **Full capstone requirements not established:**\n  - Autonomous repair of the two blind regressions.\n  - Live resumption.\n  - Accountability, design rationale and reflection.\n  - Historical token and cost usage, which is unknown.\n- **Teammate exercise:** NOT PERFORMED, at your explicit request.\n\nThe handoff also lists the reviewer's unresolved risks: `build.sh` passes `-w`, no test checks colour channel order, and the pacing and blur checks are loose or synthetic.",
+  "ttft_ms": 1122,
+  "type": "result",
+  "duration_ms": 36496,
+  "uuid": "23cdce26-caab-46f4-940b-c0262d10149a",
+  "ttft_stream_ms": 832,
+  "time_to_request_ms": 275,
+  "first_content_frame_ms": 832,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

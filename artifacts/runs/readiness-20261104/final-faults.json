@@ -1,0 +1,30 @@
+{
+  "source_revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+  "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "results": [
+    {
+      "returncode": 1,
+      "seconds": 14.533,
+      "fault": "ignore-input",
+      "expected_assertion": "Escape did not open the menu",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-ignore-input.log"
+    },
+    {
+      "returncode": 1,
+      "seconds": 2.842,
+      "fault": "blank-canvas",
+      "expected_assertion": "Canvas is blank",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-blank-canvas.log"
+    },
+    {
+      "returncode": 1,
+      "seconds": 46.616,
+      "fault": "silent-effects",
+      "expected_assertion": "No sound-effect waveform while firing",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-silent-effects.log"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "model": "sonnet",
+  "max_retries": 3,
+  "max_turns_per_agent": 20,
+  "max_budget_usd_per_agent": 2.0,
+  "max_budget_usd_per_run": 30.0,
+  "max_seconds_per_agent": 600,
+  "max_seconds_per_run": 3600,
+  "tasks": [
+    {
+      "id": "integration",
+      "description": "Review the entire port and run all protected acceptance checks. Report uncovered gameplay and system-evaluation requirements honestly."
+    }
+  ]
+}

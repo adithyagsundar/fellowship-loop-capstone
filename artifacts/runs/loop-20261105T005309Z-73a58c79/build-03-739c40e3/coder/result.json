@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 15039,
+  "stop_reason": "end_turn",
+  "session_id": "ccaf767f-2a2e-40e6-898b-03d82bfc90d5",
+  "total_cost_usd": 0.0553232,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 13729,
+    "cache_read_input_tokens": 34247,
+    "output_tokens": 1756,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 13729
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 469,
+        "cache_read_input_tokens": 15638,
+        "cache_creation_input_tokens": 928,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 928,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1756,
+      "cacheReadInputTokens": 34247,
+      "cacheCreationInputTokens": 13729,
+      "webSearchRequests": 0,
+      "costUSD": 0.0553232,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "cacheCreationEphemeral5mInputTokens": 13729,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved a DONE handoff. I changed no files and found nothing in `platform/` or `web/` that needed repair.\n\nI couldn't run a build myself because I have no execution tool. My conclusion rests on the build-02 tester's verification at the current digest (`6ef3e2af\u2026`). That run passed, with the build returning 0 in 5.2s and the tests returning 0 in 20.9s. It also listed `assets/doom1.wad`, which settles the reviewer's worry that the WAD might be missing.\n\nThe earlier build-01 failure was at an older digest, and its cause was never recorded. The build-02 reviewer's FAIL was for lack of build evidence, not a defect it found. I read only the build-02 tester and reviewer handoffs, the tester's `result.json`, `build.sh` and `platform/README.md`. I did not open the other prior handoff and process files individually.\n\nNo change to `build.sh` is required. It passes `-w`, so compiler warnings are hidden, and it doesn't check that `emcc` is 4.0.18. I did not confirm the version string.\n\nStill missing as evidence:\n- The raw build log, including `emcc --version` output.\n- A listing of `dist/` showing `doom.js`, `doom.wasm`, `doom.data`, `index.html` and `audio.js`.\n- Manual gameplay checks, and the full capstone items (autonomous repair, resumption, the teammate exercise).",
+  "ttft_ms": 1618,
+  "type": "result",
+  "duration_ms": 15391,
+  "uuid": "f9495aab-19a9-4feb-ad31-98077bee0fc3",
+  "ttft_stream_ms": 1587,
+  "time_to_request_ms": 268,
+  "first_content_frame_ms": 1587,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

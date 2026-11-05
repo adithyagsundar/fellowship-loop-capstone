@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 13528,
+  "stop_reason": "end_turn",
+  "session_id": "7c490d7c-c429-490d-a3e5-ff21530a5671",
+  "total_cost_usd": 0.0641279,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 17180,
+    "cache_read_input_tokens": 62179,
+    "output_tokens": 1494,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 17180
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 432,
+        "cache_read_input_tokens": 19292,
+        "cache_creation_input_tokens": 704,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 704,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 1494,
+      "cacheReadInputTokens": 62179,
+      "cacheCreationInputTokens": 17180,
+      "webSearchRequests": 0,
+      "costUSD": 0.0641279,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "cacheCreationEphemeral5mInputTokens": 17180,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved a scoped PASS for the input task. My own `verify` run passed at digest 6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12, the same digest I was given. Build and tests both returned 0.\n\n- **What I read:** `loop/acceptance.md`, the input-01 coder and reviewer handoffs, and the new `result.json`. I did not read the other prior handoffs, the process files, the test sources or the application source, and I did not look at the test run's own logs.\n- **Coder and reviewer:** The coder made no changes, and the reviewer reported no defects. Both said they could not run code, and I did not check their source claims myself.\n- **Not covered:** I did not play the game. Real OS focus loss is only tested as a synthetic blur. Mouse aiming (reportedly not implemented), door and switch activation, audio fidelity and save persistence are not covered. The capstone items beyond this task are separate, and the teammate exercise is NOT PERFORMED, as you asked.\n\nThe handoff is at `artifacts/runs/loop-20261105T005309Z-73a58c79/input-01-5aeea48a/tester/handoff.json`, and the verification result is in `verification-a5ddc2892c83/result.json` beside it.",
+  "ttft_ms": 1262,
+  "type": "result",
+  "duration_ms": 37909,
+  "uuid": "c60cd2dd-d900-4c58-94d9-a6792fa4fbc0",
+  "ttft_stream_ms": 707,
+  "time_to_request_ms": 89,
+  "first_content_frame_ms": 707,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

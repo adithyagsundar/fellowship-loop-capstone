@@ -1,0 +1,49 @@
+test_coder_denied_protected_paths_and_traversal (test_loop.Authority.test_coder_denied_protected_paths_and_traversal) ... ok
+test_handoffs_immutable (test_loop.Authority.test_handoffs_immutable) ... ok
+test_roles_have_different_capabilities (test_loop.Authority.test_roles_have_different_capabilities) ... ok
+test_stdio_protocol_and_denial (test_loop.Authority.test_stdio_protocol_and_denial) ... ok
+test_symlink_and_hardlink_escape_denied (test_loop.Authority.test_symlink_and_hardlink_escape_denied) ... ok
+test_tester_cannot_pass_without_execution (test_loop.Authority.test_tester_cannot_pass_without_execution) ... ok
+test_unknown_and_extra_arguments_denied (test_loop.Authority.test_unknown_and_extra_arguments_denied) ... ok
+test_all_tasks_run_before_success (test_loop.Orchestration.test_all_tasks_run_before_success) ... one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_budget_stops_before_launch (test_loop.Orchestration.test_budget_stops_before_launch) ... EXHAUSTED: Run time or reserved cost budget reached
+ok
+test_changed_source_invalidates_completed_tasks (test_loop.Orchestration.test_changed_source_invalidates_completed_tasks) ... one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_failure_stalls_and_never_completes (test_loop.Orchestration.test_failure_stalls_and_never_completes) ... one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+one: attempt 2, coder
+one: attempt 2, reviewer
+one: attempt 2, tester
+STALLED: Two failed cycles without source changes
+ok
+test_interrupt_resume_retains_attempt_and_reservation (test_loop.Orchestration.test_interrupt_resume_retains_attempt_and_reservation) ... one: attempt 1, coder
+INTERRUPTED: Resume with the same run; incomplete attempt retained and counted
+one: attempt 2, coder
+one: attempt 2, reviewer
+one: attempt 2, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_pass_text_cannot_override_structured_failure (test_loop.Orchestration.test_pass_text_cannot_override_structured_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.074s
+
+OK

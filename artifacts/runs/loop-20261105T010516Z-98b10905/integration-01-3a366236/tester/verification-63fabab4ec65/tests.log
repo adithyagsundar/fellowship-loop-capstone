@@ -1,0 +1,89 @@
+test_bundled_scores_and_invalid_data (test_audio.MusicData.test_bundled_scores_and_invalid_data) ... Validated 13 MUS scores, truncation rejection and deferred audio initialization
+
+ok
+test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port) ... PASS WAD and WebAssembly load; canvas contains rendered pixels
+PASS Enable sound button unlocks audio through a real user gesture
+PASS Real keyboard events open menu and start a new game
+PASS Continuous rendering and simulation pacing
+PASS Movement changes world position and rendered view
+PASS Turning changes player angle
+PASS Firing consumes ammunition
+PASS Pistol sound produces a nonzero audio waveform
+PASS WAD music score produces a nonzero audio waveform
+PASS Mute, unmute and volume controls affect actual output samples
+PASS Use press and release reach the game simulation
+PASS Blur handler releases a held turn key (synthetic blur)
+PASS W/S movement, A/D strafing and overlapping Shift run keys
+PASS Weapon selection and automap toggle
+PASS Menu and pause/resume buttons, P shortcut, music pause/resume
+PASS No uncaught page errors, console errors or failed network requests
+PASS: /Users/adithyagnanasundar/Documents/GitHub/fellowship-loop-capstone/artifacts/runs/browser-2026-11-05T01-06-33.747Z-69917
+
+ok
+test_coder_denied_protected_paths_and_traversal (test_loop.Authority.test_coder_denied_protected_paths_and_traversal) ... ok
+test_handoffs_immutable (test_loop.Authority.test_handoffs_immutable) ... ok
+test_latest_verification_failure_blocks_earlier_pass (test_loop.Authority.test_latest_verification_failure_blocks_earlier_pass) ... ok
+test_roles_have_different_capabilities (test_loop.Authority.test_roles_have_different_capabilities) ... ok
+test_root_documents_and_run_logs_are_discoverable (test_loop.Authority.test_root_documents_and_run_logs_are_discoverable) ... ok
+test_stale_verification_cannot_pass (test_loop.Authority.test_stale_verification_cannot_pass) ... ok
+test_stdio_protocol_and_denial (test_loop.Authority.test_stdio_protocol_and_denial) ... ok
+test_symlink_and_hardlink_escape_denied (test_loop.Authority.test_symlink_and_hardlink_escape_denied) ... ok
+test_tester_cannot_pass_without_execution (test_loop.Authority.test_tester_cannot_pass_without_execution) ... ok
+test_unknown_and_extra_arguments_denied (test_loop.Authority.test_unknown_and_extra_arguments_denied) ... ok
+test_verification_tool_returns_raw_log_excerpt (test_loop.Authority.test_verification_tool_returns_raw_log_excerpt) ... ok
+test_all_tasks_run_before_success (test_loop.Orchestration.test_all_tasks_run_before_success) ... Running protected baseline verification
+one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_budget_stops_before_launch (test_loop.Orchestration.test_budget_stops_before_launch) ... Running protected baseline verification
+EXHAUSTED: Run time or reserved cost budget reached
+ok
+test_changed_source_invalidates_completed_tasks (test_loop.Orchestration.test_changed_source_invalidates_completed_tasks) ... Running protected baseline verification
+one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_child_stdin_is_closed (test_loop.Orchestration.test_child_stdin_is_closed) ... ok
+test_failure_stalls_and_never_completes (test_loop.Orchestration.test_failure_stalls_and_never_completes) ... Running protected baseline verification
+one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+one: attempt 2, coder
+one: attempt 2, reviewer
+one: attempt 2, tester
+STALLED: Two failed cycles without source changes
+ok
+test_interrupt_resume_retains_attempt_and_reservation (test_loop.Orchestration.test_interrupt_resume_retains_attempt_and_reservation) ... Running protected baseline verification
+one: attempt 1, coder
+INTERRUPTED: Resume with the same run; incomplete attempt retained and counted
+one: attempt 2, coder
+one: attempt 2, reviewer
+one: attempt 2, tester
+two: attempt 1, coder
+two: attempt 1, reviewer
+two: attempt 1, tester
+SUCCESS: Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance
+ok
+test_pass_text_cannot_override_structured_failure (test_loop.Orchestration.test_pass_text_cannot_override_structured_failure) ... ok
+test_retry_limit_is_exhaustion (test_loop.Orchestration.test_retry_limit_is_exhaustion) ... Running protected baseline verification
+one: attempt 1, coder
+one: attempt 1, reviewer
+one: attempt 1, tester
+EXHAUSTED: Repair attempt limit reached for one
+ok
+test_time_budget_stops_before_agent_launch (test_loop.Orchestration.test_time_budget_stops_before_agent_launch) ... EXHAUSTED: Run time budget reached
+ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 19.280s
+
+OK

@@ -1,0 +1,25 @@
+You are the implementation role in a fresh invocation. Use only the supplied MCP tools.
+Read README.md, loop/README.md, artifacts/README.md (if exposed), platform/README.md,
+loop/acceptance.md, relevant source, and the linked previous findings.
+Inspect first. Make only necessary repairs in platform/ and web/; an already working
+implementation needs no cosmetic changes. Tests, engine, assets, build scripts and
+loop configuration are protected. Report any required human-owned change as a blocker.
+Do not attempt permission bypasses. No arbitrary execution tool is available.
+Save a handoff with verdict DONE, changed file paths, rationale, remaining defects,
+and evidence needed. DONE means the implementation was handed off, not acceptance.
+
+Task: build: Inspect the supplied Emscripten 4.0.18 build and verify the browser port builds. Build configuration is human-owned; report required changes instead of bypassing permissions.
+Current source digest: 6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12
+Read prior handoffs and failures at these repository-relative paths:
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-01-3bdbcd90/reviewer/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/coder/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/coder/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/reviewer/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/reviewer/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/handoff.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/process.json
+artifacts/runs/loop-20261105T005309Z-73a58c79/build-02-55986b8d/tester/verification-c544b3a2f2ac/result.json
+Use the MCP handoff tool to finish. Do not claim unperformed actions.

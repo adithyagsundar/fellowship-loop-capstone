@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 23358,
+  "stop_reason": "end_turn",
+  "session_id": "e427235c-34c8-4440-9b30-0587aad8d4d8",
+  "total_cost_usd": 0.1107836,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 30801,
+    "cache_read_input_tokens": 56051,
+    "output_tokens": 2816,
+    "output_tokens_details": {
+      "thinking_tokens": 356
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 30801
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 451,
+        "cache_read_input_tokens": 31542,
+        "cache_creation_input_tokens": 1976,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 1976,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2816,
+      "cacheReadInputTokens": 56051,
+      "cacheCreationInputTokens": 30801,
+      "webSearchRequests": 0,
+      "costUSD": 0.1107836,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 356,
+      "cacheCreationEphemeral5mInputTokens": 30801,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved a PASS handoff for the scoped input task at digest 6ef3e2af\u2026, at `artifacts/runs/loop-20261105T005309Z-73a58c79/input-01-5aeea48a/reviewer/handoff.json`. I found no defects, but I couldn't run code or tests, so the test outcome rests on a recorded file.\n\n- **What I checked:** I read the key mapping and key-release logic in `web/index.html`, the key queue in `platform/doomgeneric_wasm.c`, and the checks in `tests/browser.mjs`. The coder made no changes, so I checked the source myself rather than relying on its claims.\n- **Test evidence:** the build-03 verification `result.json` shows PASS at this same digest (build and tests both returned 0). I did not inspect that run's own output.\n- **Not covered:** these checks don't establish real OS focus loss, mouse aiming, actual door or switch activation, audio fidelity, save persistence, or a manual playthrough. The teammate exercise is NOT PERFORMED, as you requested.\n- **Still needed:** a fresh tester verification to tie the final PASS to the source hash.\n\nThe handoff also lists three minor risks I don't count as defects. These are keyup after Cmd on macOS, Alt/Tab shortcuts relying on blur, and the fixed 70 ms button tap.",
+  "ttft_ms": 1835,
+  "type": "result",
+  "duration_ms": 23653,
+  "uuid": "e243a2b4-8096-484e-8597-e00d9cda7f05",
+  "ttft_stream_ms": 1483,
+  "time_to_request_ms": 215,
+  "first_content_frame_ms": 1483,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

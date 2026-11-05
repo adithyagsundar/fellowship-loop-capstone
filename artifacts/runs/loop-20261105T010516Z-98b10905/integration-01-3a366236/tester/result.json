@@ -1,0 +1,101 @@
+{
+  "duration_api_ms": 14472,
+  "stop_reason": "end_turn",
+  "session_id": "983fe4a8-5a38-427d-b1a0-1f9b9414b964",
+  "total_cost_usd": 0.0636005,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 16309,
+    "cache_read_input_tokens": 36420,
+    "output_tokens": 1917,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 16309
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 529,
+        "cache_read_input_tokens": 18056,
+        "cache_creation_input_tokens": 1069,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 1069,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1917,
+      "cacheReadInputTokens": 36420,
+      "cacheCreationInputTokens": 16309,
+      "webSearchRequests": 0,
+      "costUSD": 0.0636005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 0,
+      "cacheCreationEphemeral5mInputTokens": 16309,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I saved a scoped PASS handoff. This covers the automated port scope only, not full assignment completion.\n\nMy own `verify` run passed on source digest `db7ae64a\u2026`, the same digest as the task and the baseline, so the source is unchanged. The build and all 22 tests passed. They include the audio tests, the browser acceptance test and the loop fixture tests. Evidence is in `artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/verification-63fabab4ec65/`.\n\nThe prior coder and reviewer handoffs ran nothing themselves, so I did not rely on them. I also did not review the source line by line, so my verdict rests on the fresh protected suite plus those handoffs.\n\n**Not covered by the automated checks:**\n- Actual door and switch activation in gameplay.\n- Real OS focus transitions (only a synthetic blur is tested).\n- Physical speaker output and musical fidelity.\n- Save and config persistence across reloads.\n- Mouse aiming. The reviewer and coder reported it is likely not implemented; I did not check that myself.\n- A manual playthrough, which has not been performed.\n\n**Not established for the full capstone:**\n- Autonomous repair of the two blind regressions: not performed, since you asked to omit it.\n- Live resumption on real runs.\n- Design rationale and reflection write-ups.\n- Historical token and cost usage, which is unknown.\n\nThe handoff is at `artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/handoff.json`.",
+  "ttft_ms": 1167,
+  "type": "result",
+  "duration_ms": 38472,
+  "uuid": "8f5a64b8-82ac-4378-8c36-463206f42cf6",
+  "ttft_stream_ms": 711,
+  "time_to_request_ms": 97,
+  "first_content_frame_ms": 711,
+  "queued_turn_count": 0,
+  "result_index": 0
+}

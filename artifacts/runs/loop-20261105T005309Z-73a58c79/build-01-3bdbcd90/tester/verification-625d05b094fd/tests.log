@@ -1,0 +1,4 @@
+test_bundled_scores_and_invalid_data (test_audio.MusicData.test_bundled_scores_and_invalid_data) ... Validated 13 MUS scores, truncation rejection and deferred audio initialization
+
+ok
+test_playable_browser_port (test_browser.BrowserAcceptance.test_playable_browser_port) ... 

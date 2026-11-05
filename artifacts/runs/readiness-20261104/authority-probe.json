@@ -1,0 +1,36 @@
+{
+  "command": "real MCP stdio coder write attempt against tests/browser.mjs (identical content to avoid damage if defective)",
+  "exit_code": 0,
+  "replies": [
+    {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-03-26",
+        "capabilities": {
+          "tools": {}
+        },
+        "serverInfo": {
+          "name": "doom-loop",
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Coder may write only port source in platform/ and web/"
+          }
+        ],
+        "isError": true
+      }
+    }
+  ],
+  "before": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+  "after": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf",
+  "passed": true
+}

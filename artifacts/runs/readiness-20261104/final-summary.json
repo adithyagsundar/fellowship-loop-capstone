@@ -1,0 +1,110 @@
+{
+  "source_revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+  "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "source_clean": true,
+  "automated_status": "PASS",
+  "full_assignment_acceptance": "INCOMPLETE",
+  "verification": "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/verification-63fabab4ec65/result.json",
+  "browser_evidence": "artifacts/runs/browser-2026-11-05T01-06-33.747Z-69917",
+  "browser_checks": 16,
+  "python_tests": 22,
+  "loop_fixture_tests": 20,
+  "browser_version": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/157.0.8103.39",
+    "revision": "@9a31f0acec1854d44e49a73fbf8017598151a583",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "jsVersion": "15.7.112.23"
+  },
+  "authority_probe": "artifacts/runs/readiness-20261104/authority-probe-final.json",
+  "faults": [
+    {
+      "returncode": 1,
+      "seconds": 14.533,
+      "fault": "ignore-input",
+      "expected_assertion": "Escape did not open the menu",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-ignore-input.log"
+    },
+    {
+      "returncode": 1,
+      "seconds": 2.842,
+      "fault": "blank-canvas",
+      "expected_assertion": "Canvas is blank",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-blank-canvas.log"
+    },
+    {
+      "returncode": 1,
+      "seconds": 46.616,
+      "fault": "silent-effects",
+      "expected_assertion": "No sound-effect waveform while firing",
+      "expected_failure_detected": true,
+      "log": "artifacts/runs/readiness-20261104/final-fault-silent-effects.log"
+    }
+  ],
+  "live_runs": [
+    {
+      "path": "artifacts/runs/loop-20261105T005309Z-73a58c79",
+      "status": "SUCCESS",
+      "source_revision": "2a71a8008f2ab757087e227c03337a67c8201110",
+      "source_digest": "6ef3e2af1bf51ab5ffc051b67b311a2a3e889da805d322913d19fe02deb9af12",
+      "completed": [
+        "build",
+        "rendering",
+        "input",
+        "wad",
+        "integration"
+      ],
+      "attempts": {
+        "build": 3,
+        "rendering": 1,
+        "input": 1,
+        "wad": 1,
+        "integration": 1
+      },
+      "reported_actual_usd": 1.6724294,
+      "charged_including_reservations_usd": 3.6724294,
+      "unknown_cost_invocations": 1,
+      "active_seconds": 552.421,
+      "reported_tokens": {
+        "input_tokens": 186,
+        "output_tokens": 44554,
+        "cache_creation_input_tokens": 443264,
+        "cache_read_input_tokens": 1183574
+      }
+    },
+    {
+      "path": "artifacts/runs/loop-20261105T010516Z-98b10905",
+      "status": "SUCCESS",
+      "source_revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+      "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+      "completed": [
+        "integration"
+      ],
+      "attempts": {
+        "integration": 1
+      },
+      "reported_actual_usd": 0.2447001,
+      "charged_including_reservations_usd": 0.2447001,
+      "unknown_cost_invocations": 0,
+      "active_seconds": 108.545,
+      "reported_tokens": {
+        "input_tokens": 24,
+        "output_tokens": 6987,
+        "cache_creation_input_tokens": 64935,
+        "cache_read_input_tokens": 124446
+      }
+    }
+  ],
+  "reported_actual_usd_total": 1.9171295,
+  "unknown_interrupted_cost": "One invocation has unknown actual cost; $2 is reserved, not reported as actual spending. Assistant usage and historical costs are not included.",
+  "manual_interventions": "interventions.md",
+  "remaining": [
+    "Two teammate/instructor blind regression repairs: omitted at user request",
+    "Interactive doors/switches, real focus and physical audio: blocked by unavailable browser host and Computer Use permission",
+    "Pre-implementation timing of acceptance criteria: not established retroactively"
+  ],
+  "reflection": "reflection.md",
+  "browser_source_and_build_hash_mismatches": []
+}

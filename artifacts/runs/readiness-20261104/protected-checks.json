@@ -1,0 +1,14 @@
+{
+  "tests/browser.mjs": {
+    "unchanged_from_head": true,
+    "sha256": "428fd987044f5fcd141a34adefa6247b47096f6cc196c67048a68529c47155bf"
+  },
+  "tests/test_browser.py": {
+    "unchanged_from_head": true,
+    "sha256": "fb1496c40dcecb8d52ec3e64f32eaacdfd32909564270e4b656f27288b3d439c"
+  },
+  "tests/test_audio.py": {
+    "unchanged_from_head": true,
+    "sha256": "a781a39be68d2aca808baff13ee9e4b1abc82b93fb9b192e31212fc064a0b643"
+  }
+}

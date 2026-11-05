@@ -1,0 +1,207 @@
+{
+  "status": "SUCCESS",
+  "revision": "1ba5d20a7c5fcf51fde2a6edfaa1d586ad38bd38",
+  "source_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "completed": [
+    "integration"
+  ],
+  "attempts": {
+    "integration": 1
+  },
+  "usage": [
+    {
+      "role": "coder",
+      "path": "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/coder",
+      "actual_usd": 0.0555329,
+      "charged_usd": 0.0555329,
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 12877,
+        "cache_read_input_tokens": 31644,
+        "output_tokens": 2016,
+        "output_tokens_details": {
+          "thinking_tokens": 36
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 12877
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 530,
+            "cache_read_input_tokens": 14498,
+            "cache_creation_input_tokens": 1216,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1216,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-sonnet-5-5": {
+          "inputTokens": 8,
+          "outputTokens": 2016,
+          "cacheReadInputTokens": 31644,
+          "cacheCreationInputTokens": 12877,
+          "webSearchRequests": 0,
+          "costUSD": 0.0555329,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 36,
+          "cacheCreationEphemeral5mInputTokens": 12877,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-sonnet-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "seconds": 18.15
+    },
+    {
+      "role": "reviewer",
+      "path": "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/reviewer",
+      "actual_usd": 0.1255667,
+      "charged_usd": 0.1255667,
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 35749,
+        "cache_read_input_tokens": 56382,
+        "output_tokens": 3054,
+        "output_tokens_details": {
+          "thinking_tokens": 256
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 35749
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 615,
+            "cache_read_input_tokens": 36631,
+            "cache_creation_input_tokens": 1835,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1835,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-sonnet-5-5": {
+          "inputTokens": 8,
+          "outputTokens": 3054,
+          "cacheReadInputTokens": 56382,
+          "cacheCreationInputTokens": 35749,
+          "webSearchRequests": 0,
+          "costUSD": 0.1255667,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 256,
+          "cacheCreationEphemeral5mInputTokens": 35749,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-sonnet-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "seconds": 26.248
+    },
+    {
+      "role": "tester",
+      "path": "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester",
+      "actual_usd": 0.0636005,
+      "charged_usd": 0.0636005,
+      "usage": {
+        "input_tokens": 8,
+        "cache_creation_input_tokens": 16309,
+        "cache_read_input_tokens": 36420,
+        "output_tokens": 1917,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 16309
+        },
+        "inference_geo": "not_available",
+        "iterations": [
+          {
+            "input_tokens": 2,
+            "output_tokens": 529,
+            "cache_read_input_tokens": 18056,
+            "cache_creation_input_tokens": 1069,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 1069,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "modelUsage": {
+        "claude-sonnet-5-5": {
+          "inputTokens": 8,
+          "outputTokens": 1917,
+          "cacheReadInputTokens": 36420,
+          "cacheCreationInputTokens": 16309,
+          "webSearchRequests": 0,
+          "costUSD": 0.0636005,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 0,
+          "cacheCreationEphemeral5mInputTokens": 16309,
+          "cacheCreationEphemeral1hInputTokens": 0,
+          "canonicalModel": "claude-sonnet-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "seconds": 39.533
+    }
+  ],
+  "charged_usd": 0.24470010000000042,
+  "seconds": 108.545,
+  "history": [
+    "artifacts/runs/loop-20261105T010516Z-98b10905/baseline-c802e8a5/result.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/coder/handoff.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/coder/process.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/reviewer/handoff.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/reviewer/process.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/handoff.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/process.json",
+    "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236/tester/verification-63fabab4ec65/result.json"
+  ],
+  "events": [],
+  "baseline_digest": "db7ae64a828f0aacdb7a7e34d5e5faa4d0b3dd9acb832b52d556950250c9ba25",
+  "current_attempt": "artifacts/runs/loop-20261105T010516Z-98b10905/integration-01-3a366236",
+  "unchanged_failures": 0,
+  "reason": "Every selected task passed independent MCP handoffs and fresh tester checks; this is not full assignment acceptance"
+}
