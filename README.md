@@ -234,7 +234,7 @@ setup script; run the steps below manually.
 
 ### How to run the loop
 
-The current student-owned implementation and its run/resume instructions
+The current implementation and its run/resume instructions
 are documented in [loop/README.md](loop/README.md). See the
 [submission evidence index](artifacts/runs/submission-20261104/README.md)
 for verified results and outstanding assignment requirements. The recorded
@@ -265,3 +265,14 @@ See [the submission evidence index](artifacts/runs/submission-20261104/README.md
 [evidence-based reflection](artifacts/runs/submission-20261104/reflection.md).
 The evidence index distinguishes verified port behavior from remaining
 capstone requirements.
+
+## Latest readiness work
+
+The [current submission index](artifacts/runs/readiness-20261104/README.md)
+records the MCP authority checks, stateful loop, live role/resumption evidence,
+resource accounting, and completed [reflection draft](artifacts/runs/readiness-20261104/reflection.md).
+Run `bash loop/loop.sh --new` to start or `bash loop/loop.sh` to resume; see
+[loop/README.md](loop/README.md) for prerequisites, budgets, and authority limits.
+The teammate/instructor blind-regression exercise was explicitly omitted, and
+interactive gameplay checks remain blocked by unavailable Computer Use access.
+Automated SUCCESS must not be presented as full capstone acceptance.

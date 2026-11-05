@@ -17,3 +17,6 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Ephemeral runner lock (state and evidence remain tracked)
+artifacts/loop.lock

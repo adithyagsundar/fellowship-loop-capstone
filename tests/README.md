@@ -53,3 +53,13 @@ This documents the existing checks; it does not establish that acceptance
 criteria were recorded before implementation. Protection against coder edits
 requires permission-enforcement evidence; a tests directory alone is not
 proof. Existing acceptance-check code was not changed during submission prep.
+
+## Loop verification
+
+`test_loop.py` adds controlled authority, protocol, stale-evidence, budget,
+interruption/resumption and completion tests. Run it without a browser or model
+charges with `python3 -m unittest discover -s tests -p test_loop.py -v`.
+Fixtures use temporary repositories and mocked role invocations; they do not
+claim real autonomous repair. The readiness evidence separately records real
+Claude role invocations, a real MCP protected-file denial and live resumption.
+The original browser/audio acceptance files were not modified by this work.
