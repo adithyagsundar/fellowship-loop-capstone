@@ -1,4 +1,22 @@
 {
+  "agents_description": "Three separate agent invocations with fresh contexts. This section documents the roles; runner.py selects them and mcp/server.py enforces permissions.",
+  "agents": {
+    "coder": {
+      "purpose": "Implement and repair the browser port",
+      "prompt": "loop/prompts/coder.md",
+      "permissions": "Read allowed source and current-run evidence; edit only permitted port source in platform/ and web/; submit a handoff. No arbitrary command execution or protected-file edits."
+    },
+    "reviewer": {
+      "purpose": "Independently inspect code and report defects",
+      "prompt": "loop/prompts/reviewer.md",
+      "permissions": "Read allowed source and current-run evidence; submit PASS or FAIL. Cannot edit source or execute commands."
+    },
+    "tester": {
+      "purpose": "Independently run protected verification and report evidence",
+      "prompt": "loop/prompts/tester.md",
+      "permissions": "Read allowed source and current-run evidence; run the fixed build/test verification tool; submit PASS or FAIL. Cannot edit source or tests."
+    }
+  },
   "model": "sonnet",
   "max_retries": 3,
   "max_turns_per_agent": 20,

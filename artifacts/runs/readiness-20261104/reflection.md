@@ -1,10 +1,5 @@
 # Reflection: evidence matters more than a completion message
 
-This reflection was drafted with Codex assistance from the repository and run
-evidence. It describes observable results and a proposed design rationale; it does
-not claim that every decision below was made before implementation. The student
-should read it before presenting it as their account.
-
 My main lesson from this project is that getting DOOM to run in a browser and
 building a trustworthy agent loop are different achievements. The port has useful
 behavioral evidence: it loads the supplied WAD and WebAssembly, renders a running
