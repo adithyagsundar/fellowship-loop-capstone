@@ -1,0 +1,12 @@
+{
+  "upstream_revision": "e500c440656622db5ab3f8fb7df73d8b5998eeb3",
+  "folder_readmes": {
+    "assets/README.md": "identical to original",
+    "platform/README.md": "identical to original",
+    "artifacts/README.md": "identical to original",
+    "third_party/doomgeneric/README.TXT": "identical to original",
+    "loop/README.md": "preserved: project-specific student implementation documentation",
+    "tests/README.md": "preserved: project-specific student implementation documentation"
+  },
+  "root_readme_local_links": "all resolve"
+}

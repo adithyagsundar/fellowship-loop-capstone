@@ -1,116 +1,137 @@
-# Capstone: build an agent loop to port DOOM
+# DOOM in the Browser: an Evidence-Driven Agent Loop
 
-**You have one week to design, operate, and evaluate a multi-agent system
-that can carry a substantial software task through to a verified result.**
+A WebAssembly port of DOOM and a three-role agent system for implementing, reviewing, and testing it. Built by **Adithya Gnanasundar** for the fellowship capstone, using the supplied Doom engine and shareware game data.
 
-Your workload is porting the supplied Doom engine from C to WebAssembly
-with Emscripten so it runs and plays in a browser. You decide what faithful
-play means and how to establish it.
+**[Play the live game](https://adithyagsundar.github.io/fellowship-loop-capstone/)** · [Loop documentation](loop/README.md) · [Verification guide](tests/README.md) · [Project reflection](artifacts/runs/readiness-20261104/reflection.md)
 
-The main deliverable is your loop: how it assigns work, challenges claims,
-uses evidence, preserves state, recovers from failure, and decides to stop.
-A working game is necessary, but it does not establish that your system works.
+The project has two deliverables: a playable browser port and an agent loop whose decisions can be checked against saved evidence. The game runs in a desktop browser without installing the engine. The loop coordinates separate Claude Code coder, reviewer, and tester processes, restricts their tools through MCP, and preserves enough state to resume after interruption.
 
-## Your responsibility
+The browser port is deployed and its automated checks pass. Full capstone evaluation remains incomplete: the two independent blind-regression repair exercises were not performed, and several manual gameplay checks remain unverified. Those distinctions are recorded throughout the evidence rather than hidden behind a single success label.
 
-You must turn it into an architecture,
-role-specific instructions, acceptance criteria, and an evaluation plan.
+## What I built
 
-You own the system design and the decisions about what evidence to trust.
-Agents implement and repair the port.
-You must explain your choices and demonstrate their consequences.
-Record manual interventions rather than attributing them to the loop.
+The starting repository provided the C engine, the Episode 1 shareware WAD, platform and HTML stubs, and assignment documentation. This project added the browser integration, build script, sound and music backend, verification suite, and executable agent orchestration.
 
-## Design decisions you must make
-
-Before implementation, document your answers in `loop/`:
-
-- **Work:** How does a broad goal become bounded tasks? Who decides what
-  happens next when agents disagree or progress stalls?
-- **Context:** What does each role see? What information must survive when
-  every agent starts with a fresh context?
-- **Authority:** Which tools and files can each role access? Who can change
-  the checks used to accept the coder's work?
-- **Evidence:** What constitutes success? How will you distinguish a plausible
-  report from a verified result, and a weak check from a useful one?
-- **Recovery:** What happens after a tool error, failed check, interrupted
-  run, or repeated unsuccessful repair?
-- **Limits:** What are the time, token or cost, and retry budgets? How do
-  success, exhaustion, and stalled progress produce different stopping decisions?
-
-There is no prescribed orchestration algorithm. Your design should make these
-choices explicit and testable.
-
-## Required roles and tools
-
-Use separate **coder, reviewer, and tester** agent invocations, with separate
-contexts and explicit handoffs. They may use the same model. Define their
-responsibilities, permissions, and the information exchanged between them.
-A single agent describing itself as three roles is not sufficient.
-
-Use **MCP for tool access and handoffs** where needed. Include the relevant tool definitions
-and configuration. Explain how the tools enforce the boundaries you chose;
-role names and prompts alone do not enforce permissions.
-
-Sandboxing is recommended but optional; see [SANDBOX.md](SANDBOX.md). Document
-network access and pin your toolchain version. Keep credentials out of the
-repository and sandbox.
-
-## Evaluate the system you built
-
-Write your own measurable acceptance criteria before the agents implement
-the port. Cover actual use in your chosen browser and explain the limits of
-your checks. A successful compile, screenshot, or agent declaration alone
-cannot establish that the task is complete.
-
-Your evaluation must demonstrate:
-
-- **Independent verification:** acceptance checks are protected from coder
-  edits, and results identify the source revision and supporting evidence.
-- **Checks that catch faults:** deliberately broken behavior causes the
-  relevant checks to fail. Explain what those checks still cannot establish.
-- **Autonomous repair:** after initial success, a teammate or instructor
-  introduces at least two regressions without disclosing their cause to the
-  repair agents. The loop detects and repairs them and verifies the result.
-- **Resumption:** an interrupted run continues with fresh agent contexts
-  using saved state, without you reconstructing its history by hand.
-- **Accountability:** you can trace findings to subsequent actions and explain
-  the resource usage, manual interventions, and final stopping decision.
-
-Preserve failing evidence as well as passing evidence. Record changes to
-acceptance criteria separately, with a reason. Discuss disagreements and
-missed faults in your write-up.
-
-## Where your work belongs
-
-| Location | Purpose |
+| Component | Implementation |
 | --- | --- |
-| [`loop/`](loop/README.md) | All loop code, prompts, role definitions, MCP configuration, and design documentation. |
-| [`artifacts/`](artifacts/README.md) | All durable run state, handoffs, logs, review findings, and evidence. Agents must use this folder between runs. |
-| `tests/` | Verification code, including checks for the loop itself. |
-| `platform/`, `web/` | The port and browser page. |
-| `third_party/doomgeneric/` | Supplied engine; platform ports have been removed. |
-| `assets/` | Included shareware `doom1.wad` (Episode 1). |
-| `build/`, `dist/` | Generated build output. |
+| Browser port | C platform callbacks in `platform/doomgeneric_wasm.c`, compiled to WebAssembly with Emscripten |
+| Rendering and timing | Framebuffer conversion for the browser canvas, clock/sleep integration, and a continuing game simulation |
+| Input | Keyboard press/release handling, movement, turning, firing, menus, automap, and pause controls |
+| Game data | The supplied `doom1.wad`, packaged into the module's virtual filesystem |
+| Audio | C audio integration in `platform/doom_audio.c` and Web Audio playback/sequencing in `web/audio.js` |
+| Browser interface | Canvas, sound activation, menu, pause/resume, mute, and volume controls in `web/index.html` |
+| Agent loop | Python orchestration, separate role prompts, MCP tools, structured handoffs, budgets, and resumable state |
+| Verification | Browser behavior checks, music-data validation, loop authority tests, and saved run evidence |
+| Deployment | A compiled static build published from `gh-pages` on this fork |
 
-Keep the root for project documentation and shared build/toolchain files.
-The starter supplies engine source, platform and HTML stubs, the shareware
-WAD, documentation, and an optional Docker toolchain. It supplies no working
-game, build script, loop implementation, or test suite. `artifacts/` starts
-with its README only; students create run evidence there during the project.
-Use the supplied engine and Emscripten. Documentation is allowed; copying an
-existing Doom browser port does not satisfy the assignment.
+The supplied engine remains the foundation of the game. Music uses simplified synthesized instruments; it does not reproduce the original OPL synthesis faithfully.
 
-See [`platform/README.md`](platform/README.md) for engine integration caveats,
-including pixel format, timing, and audio. The supplied game data already
-contains sound effects and music; no additional sound assets are required.
+## Play
 
-## Agent section for setup
+Open **https://adithyagsundar.github.io/fellowship-loop-capstone/** in a desktop browser. Click **Enable sound** or focus the canvas and press a game key, then use the menu to start a game.
 
-### Build and test the current browser port
+| Action | Key |
+| --- | --- |
+| Move / turn | Arrow keys |
+| Move forward / backward | W / S |
+| Strafe left / right | A / D |
+| Fire | Ctrl |
+| Use | Space |
+| Run | Shift |
+| Select available weapon | 1–7 |
+| Automap | Tab |
+| Menu / confirm | Esc / Enter |
+| Pause / resume | P |
 
-The browser port is now implemented. With Emscripten **4.0.18**, Python 3,
-Node.js **22 or newer**, and Google Chrome installed, run from the repository root:
+The page also provides Menu, Pause/Resume, Mute, and Volume controls. Mouse aiming and persistent saves across reloads are not supported by the reviewed port.
+
+## How the agent loop works
+
+The loop divides work into five tasks: **build, rendering, input, WAD/audio, and integration**. Each task runs through a coder, reviewer, and tester with fresh contexts. The agents exchange structured handoffs and refer to repository files and saved evidence instead of relying on a shared chat history.
+
+A baseline verification runs before the role cycle. The coder receives the bounded task and previous findings, the reviewer independently inspects the result, and the tester executes the protected verification command. Failed checks and review findings are carried into the next attempt.
+
+| Role | Responsibility | Allowed writes |
+| --- | --- | --- |
+| Coder | Implement or repair the browser port and explain the change | Permitted C, header, JavaScript, HTML, and CSS files inside `platform/` and `web/` |
+| Reviewer | Inspect correctness, identify missing requirements, and submit PASS or FAIL | Its own immutable handoff |
+| Tester | Run the fixed build/test verification and report source-matched results | Its handoff and server-generated verification evidence |
+
+The repository-local [MCP server](loop/mcp/server.py) enforces these permissions. Native agent tools are disabled, and the agents do not receive a general shell or arbitrary file-write tool. Tests, build scripts, orchestration, engine code, and game assets are protected from coder edits.
+
+A task passes only when all role invocations succeed, the handoffs refer to the current source digest, the reviewer approves, and the tester has fresh passing verification. Passing tests do not erase a reviewer FAIL, and a written PASS cannot override a failed command.
+
+This is a tool-access boundary. It is not an operating-system sandbox for hostile generated code: builds and tests still execute with the operator's local privileges. The full authority model is documented in [loop/README.md](loop/README.md).
+
+## Recovery, budgets, and stopping
+
+Each run stores its configuration, source revision and hashes, task state, attempts, handoffs, verification logs, and reported usage under `artifacts/`. Failed and interrupted attempts remain available. Source changes invalidate stale completion, and resumption starts fresh agent contexts using the saved state.
+
+The default configuration in [loop/agents.yaml](loop/agents.yaml) uses the `sonnet` model alias and these limits:
+
+| Limit | Default |
+| --- | --- |
+| Attempts per task | 3 |
+| Turns per agent invocation | 20 |
+| Budget per invocation | $2 |
+| Budget per run | $30 |
+| Time per invocation | 600 seconds |
+| Active runtime per run | 3,600 seconds |
+
+The runner distinguishes `SUCCESS`, `STALLED`, `EXHAUSTED`, `INTERRUPTED`, and `ERROR`. Two unsuccessful cycles without source changes produce a stalled result. Budget or retry exhaustion stops further work. Interrupted usage that cannot be measured is reserved conservatively rather than counted as zero. Provider calls can overshoot a CLI budget by an in-flight request, so these controls are not a billing guarantee.
+
+## What the evaluation demonstrated
+
+The [readiness evidence index](artifacts/runs/readiness-20261104/README.md) links the live agent runs, authority checks, interrupted state, resumed execution, and resource records. The [deployment evidence](artifacts/runs/pages-20261109/README.md) records the later build and publication.
+
+| Result | Evidence and interpretation |
+| --- | --- |
+| Browser build and tests pass | The November 9 deployment run passed all 22 Python tests, including the browser acceptance and audio-data tests |
+| Behavioral checks go beyond a screenshot | The browser suite checks simulation, position changes, turning, ammunition consumption, rendered pixels, and audio samples, among other behaviors |
+| Audio data is validated | All 13 bundled MUS scores are checked, along with malformed/truncated input rejection and deferred audio initialization |
+| Checks detect deliberate faults | Ignored input, a blank canvas, and silent effects each produced the intended failing assertion in the saved evaluation |
+| Coder permissions are enforced | A live MCP probe denied a coder attempt to write a protected browser test |
+| Separate roles run in practice | Saved CLI results, tool logs, and handoffs identify independent coder, reviewer, and tester invocations |
+| Interruption and resumption work | A live interrupted run preserved its incomplete attempt, resumed with fresh contexts, and subsequently completed all five tasks |
+| Review disagreement is retained | A build reviewer withheld approval for missing execution evidence; later source-matched verification supported approval in a subsequent cycle |
+| Public deployment is verified | All five game files returned HTTP 200 and matched the local tested build byte-for-byte; WebAssembly was served with the correct MIME type |
+
+The 22 Python tests include 20 loop tests, one browser test containing 16 behavior checks, and one audio test covering the music data. Fixture-based loop tests are distinct from the saved live role runs.
+
+Across the two documented readiness runs, reported actual model cost totaled **$1.91712950**, with a separate **$2 reserve** for one interrupted invocation whose actual cost was unknown. This is not the total cost of the project or all assistant work. See [final-summary.json](artifacts/runs/readiness-20261104/final-summary.json) for the recorded usage and source identities.
+
+## What changed during development
+
+An earlier shell-based loop printed a completion message while later tasks were still unfinished, and manual restarts were needed. That exposed a problem in the coordinator even though the game itself worked.
+
+The replacement Python runner tracks every task and attempt explicitly, closes child stdin, validates structured handoffs, ties results to source hashes, and preserves distinct stopping states. Shared stdin was a suspected cause of the earlier failure; the historical logs do not establish it as the sole cause.
+
+The authority model also moved from documented forbidden paths to enforced MCP permissions. Protecting tests alone was insufficient if a coder could change the build script that verification executes, so executable build configuration became maintainer-owned as well.
+
+My main takeaway was that a convincing demo is only one piece of evidence. A useful agent system also needs to show why it accepted a change, retain disagreements and failures, and continue without reconstructing its history by hand. The [reflection](artifacts/runs/readiness-20261104/reflection.md) discusses these tradeoffs and what I would change in a repeat of the project.
+
+## Build and run locally
+
+Prerequisites: Git, **Emscripten 4.0.18**, Python 3, **Node.js 22 or newer**, and Google Chrome for browser verification. The loop itself requires an installed and authenticated Claude Code CLI. Playing or building the game does not require Claude Code.
+
+Clone the fork:
+
+```sh
+git clone https://github.com/adithyagsundar/fellowship-loop-capstone.git
+cd fellowship-loop-capstone
+```
+
+If Emscripten is not installed, install the pinned SDK version. On macOS, install the Xcode command-line tools first with `xcode-select --install` if needed.
+
+```sh
+mkdir -p ~/Developer
+git clone https://github.com/emscripten-core/emsdk.git ~/Developer/emsdk
+cd ~/Developer/emsdk
+./emsdk install 4.0.18
+./emsdk activate 4.0.18
+```
+
+Return to this project directory, then build and verify:
 
 ```sh
 source ~/Developer/emsdk/emsdk_env.sh
@@ -119,171 +140,57 @@ python3 -m unittest discover -s tests -p 'test_*.py' -v
 python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 ```
 
-Open <http://localhost:8000>. Click **Enable sound** or focus the canvas and
-press a game key. Arrows move/turn; W/S move forward/back; A/D strafe;
-Ctrl fires; Space uses; Shift runs; 1–7 select available weapons;
-Tab toggles the map; Enter/Esc operate menus; P pauses/resumes.
-The page also provides Menu, Pause/Resume, Mute, and Volume controls.
+Open **http://localhost:8000**. Serve the build over HTTP rather than opening the HTML file directly. Set `CHROME_BIN` if Chrome is installed outside the locations detected by the tests.
 
-The build produces `dist/index.html`, `audio.js`, `doom.js`, `doom.wasm`,
-and `doom.data`. Serve or deploy all five together. Set `CHROME_BIN` if
-Chrome is outside the locations detected by the browser test.
+The build creates `index.html`, `audio.js`, `doom.js`, `doom.wasm`, and `doom.data` in `dist/`. Keep all five files together when serving or deploying the game. The shareware WAD is packaged into `doom.data`.
 
-Tests save source/build hashes, browser logs, screenshots, and results in
-unique `artifacts/runs/browser-*` directories. Audio checks measure Web Audio
-samples, not physical speaker output. Sound effects use the supplied WAD;
-music uses simplified synthesized instruments rather than OPL emulation.
-Door/switch activation, mouse aiming, and save persistence are not covered
-by these checks. Passing them does not establish completion of the
-agent-system evaluation described above.
+## Run or resume the agents
 
-To confirm fault detection, prefix the test command with
-`DOOM_TEST_FAULT=ignore-input`, `DOOM_TEST_FAULT=blank-canvas`, or
-`DOOM_TEST_FAULT=silent-effects`. These browser-only faults are expected to
-produce a failing test exit code and do not modify the port. They are
-fault-detection checks, not the required undisclosed regression-repair exercise.
+After installing and authenticating Claude Code, run from the repository root:
 
-### macOS without Docker
+```sh
+source ~/Developer/emsdk/emsdk_env.sh
+bash loop/loop.sh --verify-only       # Build and test without model calls
+bash loop/loop.sh --new               # Start a new five-task run
+bash loop/loop.sh                     # Resume the run in artifacts/state.json
+```
 
-Install the build tools directly on your Mac to compile and test the browser
-port. Docker is not required for this workflow. There is currently no macOS
-setup script; run the steps below manually.
+For a scoped whole-port evaluation or an explicit saved run:
 
-1. **Install prerequisites.** In Terminal, run:
+```sh
+bash loop/loop.sh --new --tasks integration
+bash loop/loop.sh --run artifacts/runs/loop-<id>
+```
 
-   ```sh
-   xcode-select --install
-   ```
+Live agent runs use your authenticated model account and may incur charges. Keep credentials outside the repository. See the [loop guide](loop/README.md) for recovery behavior and configuration.
 
-   Finish the installer, then check `git --version` and `python3 --version`.
-   If Python is missing, install it from [python.org](https://www.python.org/downloads/macos/),
-   or run `brew install python` if you already have Homebrew.
+## Deployment
 
-2. **Install Emscripten.** Use version `4.0.18` to match the supplied Dockerfile:
+The live site is hosted on GitHub Pages from the root of the fork's **`gh-pages`** branch. The deployed game was built from source commit `a8c8c71`; its deployment commit is `911c437`. Later documentation commits do not change those game binaries.
 
-   ```sh
-   mkdir -p ~/Developer
-   cd ~/Developer
-   git clone https://github.com/emscripten-core/emsdk.git
-   cd emsdk
-   ./emsdk install 4.0.18
-   ./emsdk activate 4.0.18
-   source ./emsdk_env.sh
-   emcc --version
-   ```
+Deployment is manual: changes pushed to `main` do not automatically rebuild the website. To update it, build and verify the source, then publish the five `dist/` files to `gh-pages` alongside `.nojekyll`, `LICENSE`, and a `source-revision.txt` identifying the build. The November 9 [publication record](artifacts/runs/pages-20261109/README.md) includes build hashes, test output, and public asset verification.
 
-   If you already have an SDK checkout at that location, use it instead of
-   cloning again. In each new Terminal session where you want to compile, run:
+## Repository guide
 
-   ```sh
-   source ~/Developer/emsdk/emsdk_env.sh
-   ```
+| Path | Purpose |
+| --- | --- |
+| `platform/` | C browser platform and audio integration |
+| `web/` | Browser page and Web Audio implementation |
+| `loop/` | Runner, role prompts, MCP server, configuration, and acceptance contract |
+| `tests/` | Protected browser, audio, and loop verification code |
+| `artifacts/` | Durable run state, handoffs, failures, results, screenshots, and reflections |
+| `assets/` | Supplied shareware `doom1.wad` |
+| `third_party/doomgeneric/` | Supplied Doom engine and its notices |
+| `build/`, `dist/` | Generated output, excluded from the source branch |
 
-   See the [official installation instructions](https://emscripten.org/docs/getting_started/downloads.html).
+Some folder READMEs retain the original starter instructions. The loop and verification READMEs document the implemented project. Historical source snapshots and run reports remain unchanged so their evidence can be interpreted against the revision they describe.
 
-3. **Verify the compiler and browser workflow.** Return to this repository's
-   root directory, then run:
+## Evaluation limits and provenance
 
-   ```sh
-   mkdir -p build/smoke
-   cat > build/smoke/hello.c <<'EOF'
-   #include <stdio.h>
-   int main(void) {
-       printf("Emscripten works!\n");
-       return 0;
-   }
-   EOF
+The automated results establish the scope in [loop/acceptance.md](loop/acceptance.md), not every requirement of the original assignment. The two teammate/instructor-introduced blind regressions were intentionally omitted. Diagnostic fault detection is not a substitute for demonstrating autonomous repair of unknown regressions.
 
-   emcc build/smoke/hello.c -o build/smoke/index.html
-   python3 -m http.server 8000 --bind 127.0.0.1 --directory build/smoke
-   ```
+Manual door/switch activation, real operating-system focus transitions, and physical speaker output were not established by the saved checks. The consolidated acceptance contract was written after implementation; it does not establish that criteria existed beforehand.
 
-   Open <http://localhost:8000>. The generated page should print
-   `Emscripten works!`. Press **Control-C** in Terminal to stop the server.
-   This verifies the toolchain and local serving, not the game.
+The implementation and documentation include Codex-assisted work and maintainer interventions, recorded in the [intervention history](artifacts/runs/readiness-20261104/interventions.md). The evaluated loop's live role invocations used Claude Code. Manual repairs, documentation, and deployment are separate from the loop's autonomous results.
 
-4. **Build the implemented game.** From this repository's root, run:
-
-   ```sh
-   source ~/Developer/emsdk/emsdk_env.sh
-   bash build.sh
-   python3 -m unittest discover -s tests -p 'test_*.py' -v
-   ```
-
-   The build writes `index.html`, `audio.js`, `doom.js`, `doom.wasm`, and
-   `doom.data` to `dist/`. The shareware WAD is packaged into `doom.data`.
-
-5. **Test the completed game locally.** Once the build output is in `dist/`,
-   run this from the repository root:
-
-   ```sh
-   python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
-   ```
-
-   Open <http://localhost:8000> and exercise the game's behavior. Use a local
-   web server rather than opening the HTML file directly, as explained in
-   [Emscripten's deployment documentation](https://emscripten.org/docs/compiling/Deploying-Pages.html).
-
-6. **Publish to a personal website.** Upload the contents of `dist/` to a
-   directory such as `/doom/` on your static host, preserving relative paths.
-   Visit `https://your-domain.com/doom/` and verify the deployed game. Ensure
-   the host serves `.wasm` files with the `application/wasm` content type.
-   Builds using shared-memory threads also need cross-origin isolation
-   headers. Visitors need only a compatible browser; Emscripten is a build
-   tool installed on the developer's machine.
-
-### How to run the loop
-
-The current implementation and its run/resume instructions
-are documented in [loop/README.md](loop/README.md). See the
-[submission evidence index](artifacts/runs/submission-20261104/README.md)
-for verified results and outstanding assignment requirements. The recorded
-`AUTOMATED_PHASE_COMPLETE` status does not establish full capstone completion.
-
-## What to hand in
-
-- Your loop implementation and design rationale in `loop/`, with instructions
-  for setup, starting, and resuming a run.
-- The resulting port, its build/run instructions, and readable Git history.
-- Your acceptance criteria, verification code, and evidence for the final revision.
-- Artifacts demonstrating review, failed checks, repair, resumption, resource
-  usage, and the stopping decision.
-- A short reflection: what your architecture helped catch, what it missed,
-  and which design choice you would change based on the evidence.
-
-Be prepared to explain why each role and handoff earns its place in the system.
-
-## License and game data
-
-Keep the engine's license notices; see [LICENSE](LICENSE). Use only the
-shareware `doom1.wad` for this assignment. Do not add commercial WADs.
-
-## Submission evidence
-
-See [the submission evidence index](artifacts/runs/submission-20261104/README.md),
-[verification instructions](tests/README.md), and
-[evidence-based reflection](artifacts/runs/submission-20261104/reflection.md).
-The evidence index distinguishes verified port behavior from remaining
-capstone requirements.
-
-## Latest readiness work
-
-The [current submission index](artifacts/runs/readiness-20261104/README.md)
-records the MCP authority checks, stateful loop, live role/resumption evidence,
-resource accounting, and completed [reflection draft](artifacts/runs/readiness-20261104/reflection.md).
-Run `bash loop/loop.sh --new` to start or `bash loop/loop.sh` to resume; see
-[loop/README.md](loop/README.md) for prerequisites, budgets, and authority limits.
-The teammate/instructor blind-regression exercise was explicitly omitted, and
-interactive gameplay checks remain blocked by unavailable Computer Use access.
-Automated SUCCESS must not be presented as full capstone acceptance.
-
-## Play online
-
-The public GitHub Pages build is available at
-<https://adithyagsundar.github.io/fellowship-loop-capstone/>.
-Use a desktop browser and the keyboard controls listed above.
-
-Pages serves the compiled files from the root of the fork's `gh-pages` branch.
-Source changes on `main` do not automatically deploy: rebuild with `bash build.sh`,
-run the verification suite, and publish the five files in `dist/` to `gh-pages`
-with `.nojekyll`, the license, and a `source-revision.txt` identifying the build.
+This project began from [bse-at-ucla/fellowship-loop-capstone](https://github.com/bse-at-ucla/fellowship-loop-capstone). The original assignment remains available in that repository and this fork's Git history. Preserve the engine's license notices; see [LICENSE](LICENSE) and [the engine README](third_party/doomgeneric/README.TXT). Only the supplied shareware Episode 1 WAD is included; no commercial WADs are added.
