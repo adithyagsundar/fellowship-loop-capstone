@@ -8,6 +8,16 @@ The project has two deliverables: a playable browser port and an agent loop whos
 
 The browser port is deployed and its automated checks pass. Full capstone evaluation remains incomplete: the two independent blind-regression repair exercises were not performed, and several manual gameplay checks remain unverified. Those distinctions are recorded throughout the evidence rather than hidden behind a single success label.
 
+## What we are trying to do—and why use agents?
+
+The goal is to explore how to give AI agents a substantial software task and make their progress verifiable. DOOM is the workload: taking an existing C engine into the browser requires rendering, timing, input, file loading, and audio to work together. That gives the agent system concrete problems to solve and observable behavior to test.
+
+If we ported DOOM ourselves, we would inspect the code, choose the next change, debug failures, and decide when the result was good enough. In this project, those decisions also become part of the system we are building. The loop assigns bounded work, gives each role specific tools, sends findings between separate agents, and decides whether to retry, stop, or accept a result based on recorded evidence. Our responsibility is to design those rules and evaluate whether they work.
+
+That changes what counts as success. A playable game shows that the port works within its tested scope. To trust the agent loop, we also need evidence that it catches mistakes, protects its tests, preserves disagreements, resumes after interruption, and stays within explicit resource limits. A game that works only because we repeatedly step in and repair it would not, by itself, demonstrate an effective autonomous workflow. Human interventions therefore need to remain visible in the record.
+
+The broader aim is to learn which parts of software development can be delegated reliably and what checks that delegation requires. The same questions apply to other engineering tasks: can a reviewer challenge a coder's claim, can a tester supply independent evidence, and can the system continue from saved state without a person reconstructing the history? This project demonstrates parts of that workflow through live role runs, protected verification, and resumption. Its ability to repair independently introduced unknown regressions remains unevaluated because the blind-regression exercises were not performed.
+
 ## What I built
 
 The starting repository provided the C engine, the Episode 1 shareware WAD, platform and HTML stubs, and assignment documentation. This project added the browser integration, build script, sound and music backend, verification suite, and executable agent orchestration.
