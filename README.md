@@ -276,3 +276,14 @@ Run `bash loop/loop.sh --new` to start or `bash loop/loop.sh` to resume; see
 The teammate/instructor blind-regression exercise was explicitly omitted, and
 interactive gameplay checks remain blocked by unavailable Computer Use access.
 Automated SUCCESS must not be presented as full capstone acceptance.
+
+## Play online
+
+The public GitHub Pages build is available at
+<https://adithyagsundar.github.io/fellowship-loop-capstone/>.
+Use a desktop browser and the keyboard controls listed above.
+
+Pages serves the compiled files from the root of the fork's `gh-pages` branch.
+Source changes on `main` do not automatically deploy: rebuild with `bash build.sh`,
+run the verification suite, and publish the five files in `dist/` to `gh-pages`
+with `.nojekyll`, the license, and a `source-revision.txt` identifying the build.

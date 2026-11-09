@@ -1,0 +1,42 @@
+[
+  {
+    "file": "index.html",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 5966,
+    "matches_local_build": true,
+    "sha256": "bd5b5efc0f5bb8b647f5af89ad7ebb6f8913dfc7c020ef4da97291891200fffd"
+  },
+  {
+    "file": "audio.js",
+    "status": 200,
+    "content_type": "application/javascript; charset=utf-8",
+    "bytes": 11454,
+    "matches_local_build": true,
+    "sha256": "d2c9a2722f993b7b5553f25d10113230c23414c06ab5e3f833c26fd2d35dbcd5"
+  },
+  {
+    "file": "doom.js",
+    "status": 200,
+    "content_type": "application/javascript; charset=utf-8",
+    "bytes": 76539,
+    "matches_local_build": true,
+    "sha256": "a02b242388898df57f82520d6af3956cf4cd65129c6e67e14eab7ec839753041"
+  },
+  {
+    "file": "doom.wasm",
+    "status": 200,
+    "content_type": "application/wasm",
+    "bytes": 548221,
+    "matches_local_build": true,
+    "sha256": "9735d0654a65514367d5a56ca7b98a7c4689c1317caac5fecfb58429ca8f8239"
+  },
+  {
+    "file": "doom.data",
+    "status": 200,
+    "content_type": "application/octet-stream",
+    "bytes": 4196020,
+    "matches_local_build": true,
+    "sha256": "1d7d43be501e67d927e415e0b8f3e29c3bf33075e859721816f652a526cac771"
+  }
+]

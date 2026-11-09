@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/emcc.py", line 612, in <module>
+    sys.exit(main(sys.argv))
+             ~~~~^^^^^^^^^^
+  File "/Users/adithyagnanasundar/Developer/emsdk/python/3.13.3_64bit/lib/python3.13/contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/emcc.py", line 605, in main
+    ret = run(args)
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/emcc.py", line 329, in run
+    return link.run(options, linker_args)
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/link.py", line 3171, in run
+    js_info = get_js_sym_info()
+  File "/Users/adithyagnanasundar/Developer/emsdk/python/3.13.3_64bit/lib/python3.13/contextlib.py", line 85, in inner
+    return func(*args, **kwds)
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/link.py", line 295, in get_js_sym_info
+    file_content = get_cached_file('symbol_lists', f'{content_hash}.json', generate_json, cache_limit=500)
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/link.py", line 241, in get_cached_file
+    with filelock.FileLock(cache_file + '.lock'):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/filelock.py", line 330, in __enter__
+    self.acquire()
+    ~~~~~~~~~~~~^^
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/filelock.py", line 278, in acquire
+    self._acquire()
+    ~~~~~~~~~~~~~^^
+  File "/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/tools/filelock.py", line 391, in _acquire
+    fd = os.open(self._lock_file, open_mode)
+PermissionError: [Errno 1] Operation not permitted: '/Users/adithyagnanasundar/Developer/emsdk/upstream/emscripten/cache/symbol_lists/eab3c082e6bd3c57aa96bce7bf98d234c37b77e3.json.lock'
